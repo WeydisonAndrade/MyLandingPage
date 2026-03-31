@@ -106,7 +106,25 @@
     <hr class="section-divider section-divider--after-contact" />
     <section class="projects" aria-labelledby="projects-heading">
       <h2 id="projects-heading" class="projects__heading">Projetos</h2>
-      <div class="projects__container">
+      <div class="projects__wrap">
+        <button
+          type="button"
+          class="projects__nav projects__nav--prev"
+          id="projectsPrev"
+          aria-controls="projectsCarousel"
+          aria-label="Ver projetos anteriores"
+        >
+          <svg class="projects__nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div
+          class="projects__container"
+          id="projectsCarousel"
+          role="region"
+          aria-label="Carrossel de projetos"
+          tabindex="0"
+        >
         <article class="project-card project-card--linkable project-card--visual">
           <a
             class="project-card__link"
@@ -175,6 +193,35 @@
             </div>
           </a>
         </article>
+        <article class="project-card project-card--linkable project-card--visual project-card--vet">
+          <a
+            class="project-card__link"
+            href="https://dog-vet.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="DogVet: clínica veterinária com serviços, equipe e agendamento. Abre em nova aba."
+          >
+            <span class="project-card__bg" aria-hidden="true"></span>
+            <span class="project-card__overlay" aria-hidden="true"></span>
+            <div class="project-card__inner">
+              <h3 class="project-card__title">DogVet</h3>
+              <p class="project-card__desc">Landing page de clínica veterinária: serviços, equipe, depoimentos e contato com foco em conversão.</p>
+              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+            </div>
+          </a>
+        </article>
+        </div>
+        <button
+          type="button"
+          class="projects__nav projects__nav--next"
+          id="projectsNext"
+          aria-controls="projectsCarousel"
+          aria-label="Ver próximos projetos"
+        >
+          <svg class="projects__nav-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -212,6 +259,7 @@
         });
       })();
     </script>
+    <script src="js/projects-carousel.js" defer></script>
     <script src="js/particles.js" defer></script>
   </body>
 </html>
