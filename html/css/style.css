@@ -86,9 +86,9 @@ li {
   line-height: 1.6;
 }
 
-/* Termos técnicos / lista de conhecimentos: aparência de código (JetBrains Mono) */
+/* Termos técnicos: aparência de código (JetBrains Mono) */
 .tech-inline,
-.know-how__list li {
+.know-how-item__label {
   font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
   font-weight: 400;
 }
@@ -342,9 +342,292 @@ ul {
   }
 }
 
-/* Parágrafo introdutório antes da lista de tecnologias */
-.know-how-text > p {
-  margin-bottom: 1.25rem;
+/* ========== Sobre mim: narrativa de transição + credenciais + coluna visual ========== */
+.about__inner {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+  align-items: center;
+}
+
+.about__main {
+  min-width: 0;
+}
+
+.about__copy {
+  margin-bottom: 1.5rem;
+}
+
+.about__copy p {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
+  line-height: 1.7;
+  color: rgba(230, 235, 245, 0.88);
+  margin-bottom: 1.1rem;
+}
+
+.about__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about__copy strong {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.96);
+  letter-spacing: -0.01em;
+}
+
+.about__credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.625rem;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.about__credential {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about__credential-title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.01em;
+}
+
+.about__credential-org {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: rgba(180, 195, 215, 0.85);
+  letter-spacing: 0.02em;
+}
+
+.about__tagline {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+  color: rgba(160, 200, 255, 0.92);
+  margin: 0;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about__aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.about__deco {
+  width: min(100%, 200px);
+  height: auto;
+  max-width: 220px;
+  opacity: 0.95;
+}
+
+@media (min-width: 900px) {
+  .about__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 220px);
+    gap: 2.5rem 3rem;
+    align-items: start;
+  }
+
+  .about__aside {
+    justify-content: flex-end;
+    padding-top: 3.25rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .about__aside {
+    padding-top: 0.25rem;
+    opacity: 0.9;
+  }
+
+  .about__deco {
+    max-width: 168px;
+  }
+}
+
+/* ========== Conhecimentos: dashboard em duas colunas (Tech × Processos) ========== */
+.know-how__wrap {
+  width: 100%;
+}
+
+.know-how__intro {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(0.9375rem, 2.1vw, 1.0625rem);
+  line-height: 1.65;
+  color: rgba(220, 228, 240, 0.88);
+  max-width: 52rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.know-how__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .know-how__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.know-how-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.15rem, 3vw, 1.5rem) clamp(1.15rem, 3vw, 1.65rem);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(155deg, rgba(130, 185, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(7, 10, 18, 0.5) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.know-how-card--process {
+  background: linear-gradient(155deg, rgba(180, 200, 220, 0.07) 0%, rgba(255, 255, 255, 0.035) 50%, rgba(7, 10, 18, 0.45) 100%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .know-how-card:hover {
+    transform: scale(1.015);
+    border-color: rgba(130, 185, 255, 0.35);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(130, 185, 255, 0.12) inset;
+  }
+
+  .know-how-card--process:hover {
+    border-color: rgba(200, 215, 235, 0.28);
+  }
+}
+
+.know-how-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.know-how-card__badge-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: rgba(130, 185, 255, 0.95);
+  background: rgba(130, 185, 255, 0.12);
+  border: 1px solid rgba(130, 185, 255, 0.2);
+}
+
+.know-how-card--process .know-how-card__badge-icon {
+  color: rgba(200, 215, 235, 0.95);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.know-how-card__title {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1rem, 2.4vw, 1.125rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0;
+}
+
+.know-how-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.know-how-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 2.75rem;
+}
+
+.know-how-item__glyph {
+  flex-shrink: 0;
+  width: 1.35rem;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(130, 185, 255, 0.88);
+}
+
+.know-how-card--process .know-how-item__glyph {
+  color: rgba(195, 210, 230, 0.9);
+}
+
+.know-how-item__glyph--pair {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: auto;
+  min-width: 1.35rem;
+}
+
+.know-how-item__glyph--pair i {
+  font-size: 0.95rem;
+}
+
+.know-how-item__glyph--pair .fa-html5 {
+  color: #e44d26;
+}
+
+.know-how-item__glyph--pair .fa-css3-alt {
+  color: #1572b6;
+}
+
+.know-how-item__label {
+  font-size: clamp(0.8rem, 1.9vw, 0.875rem);
+  line-height: 1.45;
+  color: rgba(235, 240, 248, 0.94);
+  word-break: break-word;
+}
+
+@media (max-width: 380px) {
+  .know-how-item {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .know-how-item__label {
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 /* Texto do contato limitado em largura para leitura confortável */
@@ -404,7 +687,7 @@ ul {
   flex-shrink: 0;
 }
 
-/* ========== Rodapé: copyright e ano (ano preenchido via script no HTML) ========== */
+/* ========== Rodapé: redes sociais + copyright (ano preenchido via script no HTML) ========== */
 .site-footer {
   width: 100%;
   padding: 2rem var(--container-gutter) 2.25rem;
@@ -417,17 +700,110 @@ ul {
   margin: 0 auto;
   text-align: center;
   padding-inline: var(--container-gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-footer__social {
+  width: 100%;
+}
+
+.site-footer__social-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.625rem;
+  color: rgba(255, 255, 255, 0.38);
+  outline: none;
+  border-radius: 0.35rem;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Font Awesome / SVG: tamanho ~24px e alinhamento consistente */
+.site-footer__social-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.site-footer__social-icon--instagram {
+  display: block;
+}
+
+.site-footer__social-icon--instagram path {
+  transition: fill 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-footer__social-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .site-footer__social-link--linkedin:hover {
+    color: #0077b5;
+  }
+
+  .site-footer__social-link--instagram:hover .site-footer__social-icon--instagram path {
+    fill: url(#footer-instagram-gradient);
+  }
+
+  .site-footer__social-link--github:hover {
+    color: #ffffff;
+  }
+}
+
+.site-footer__social-link:focus-visible {
+  box-shadow: 0 0 0 2px rgba(130, 185, 255, 0.85);
+  transform: translateY(-3px);
+}
+
+.site-footer__social-link--linkedin:focus-visible {
+  color: #0077b5;
+}
+
+.site-footer__social-link--instagram:focus-visible .site-footer__social-icon--instagram path {
+  fill: url(#footer-instagram-gradient);
+}
+
+.site-footer__social-link--github:focus-visible {
+  color: #ffffff;
 }
 
 .site-footer__text {
   font-size: 0.875rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.65);
+  margin: 0;
 }
 
 @media (min-width: 768px) {
   .site-footer {
     padding-block: 2.25rem 2.5rem;
+  }
+
+  .site-footer__inner {
+    gap: 1.35rem;
   }
 
   .site-footer__text {
