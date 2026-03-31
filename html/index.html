@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weydison Andrade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -58,7 +64,10 @@
     <section class="about" id="sobre">
       <div class="about-text">
         <h2>Sobre mim</h2>
-        <p>Sou estudante de Engenharia de Software na Centro Universitário Internacional UNINTER.</p>
+        <p>
+          Sou estudante de Engenharia de Software na Centro Universitário Internacional
+          <span class="tech-inline">UNINTER</span>.
+        </p>
       </div>
     </section>
     <hr class="section-divider" />
@@ -66,7 +75,7 @@
       <div class="know-how-text">
         <h2>Conhecimentos</h2>
         <p>Tenho conhecimento nas seguintes tecnologias e ferramentas de melhoria contínua:</p>
-        <ul>
+        <ul class="know-how__list">
             <li>Git</li>
             <li>GitHub</li>
             <li>MySQL</li>
@@ -86,7 +95,7 @@
     <section class="contact" id="contato">
       <div class="contact-text">
         <h2>Contato</h2>
-        <p>Entre em contato para oportunidades, projetos ou uma boa conversa sobre código!</p>
+        <p>Entre em contato para oportunidades, projetos ou uma boa conversa sobre <span class="tech-inline">código</span>!</p>
         <a
           class="contact-whatsapp"
           href="https://wa.me/5592992929044?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
@@ -137,7 +146,10 @@
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">EcoFábrica</h3>
-              <p class="project-card__desc">Painel de produção com OEE, KPIs e registro diário.</p>
+              <p class="project-card__desc">
+                Painel de produção com <span class="tech-inline">OEE</span>, <span class="tech-inline">KPIs</span> e
+                registro diário.
+              </p>
               <span class="project-card__hint" aria-hidden="true">Abrir projeto</span>
             </div>
           </a>
