@@ -432,6 +432,10 @@ ul {
   animation-delay: 0.32s;
 }
 
+.project-card:nth-child(4) {
+  animation-delay: 0.44s;
+}
+
 @keyframes projectCardIn {
   to {
     opacity: 1;
@@ -506,6 +510,12 @@ ul {
 .project-card--dental {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
     url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=85");
+}
+
+/* Escritório jurídico — troque --project-card-bg para imagem local se preferir */
+.project-card--legal {
+  --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.14) 0%, rgba(8, 14, 24, 0.45) 100%),
+    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=85");
 }
 
 .project-card--visual .project-card__overlay {
