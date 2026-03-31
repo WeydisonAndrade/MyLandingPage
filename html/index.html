@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <!-- Metadados, fontes e folha de estilos globais -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weydison Andrade</title>
+    <!-- Pré-conexão com servidores do Google Fonts (melhora desempenho) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tipografia: Inter (texto) e JetBrains Mono (termos técnicos) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
@@ -13,8 +16,10 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Fundo animado: rede de partículas (desenhado via Canvas em particles.js) -->
     <canvas id="particle-network" class="particle-canvas" aria-hidden="true"></canvas>
 
+    <!-- Cabeçalho fixo: menu hambúrguer (mobile) + âncoras para as seções da página -->
     <header class="header">
       <button
         class="header__toggle"
@@ -39,15 +44,16 @@
       </nav>
     </header>
 
+    <!-- Seção inicial (hero): nome, cargo e foto -->
     <section class="home" id="inicio">
-      <div class="home__inner">
+      <div class="section-container home__inner">
         <div class="home-text">
           <h1>Weydison Andrade</h1>
           <h2>Estudante de Engenharia de Software</h2>
           <p>Transformando ideias em software.</p>
         </div>
         <div class="home__photo">
-          <!-- Caminho relativo ao index.html: pasta MinhaImagem fica em myLandingPage/ (um nível acima de html/) -->
+          <!-- Imagem um nível acima da pasta html/ (MinhaImagem na raiz do projeto) -->
           <img
             class="home__img"
             src="../MinhaImagem/Eu.jpeg"
@@ -61,8 +67,9 @@
       </div>
     </section>
     <hr class="section-divider" />
+    <!-- Apresentação pessoal e formação -->
     <section class="about" id="sobre">
-      <div class="about-text">
+      <div class="section-container about-text">
         <h2>Sobre mim</h2>
         <p>
           Sou estudante de Engenharia de Software na Centro Universitário Internacional
@@ -71,8 +78,9 @@
       </div>
     </section>
     <hr class="section-divider" />
+    <!-- Lista de tecnologias e ferramentas (tipografia monospace via CSS) -->
     <section class="know-how" id="conhecimentos">
-      <div class="know-how-text">
+      <div class="section-container know-how-text">
         <h2>Conhecimentos</h2>
         <p>Tenho conhecimento nas seguintes tecnologias e ferramentas de melhoria contínua:</p>
         <ul class="know-how__list">
@@ -92,8 +100,9 @@
       </div>
     </section>
     <hr class="section-divider" />
+    <!-- Contato: texto de convite + link para WhatsApp (abre em nova aba) -->
     <section class="contact" id="contato">
-      <div class="contact-text">
+      <div class="section-container contact-text">
         <h2>Contato</h2>
         <p>Entre em contato para oportunidades, projetos ou uma boa conversa sobre <span class="tech-inline">código</span>!</p>
         <a
@@ -113,7 +122,9 @@
       </div>
     </section>
     <hr class="section-divider section-divider--after-contact" />
+    <!-- Portfólio: carrossel horizontal com botões prev/next (lógica em projects-carousel.js) -->
     <section class="projects" aria-labelledby="projects-heading">
+      <div class="section-container section-container--projects">
       <h2 id="projects-heading" class="projects__heading">Projetos</h2>
       <div class="projects__wrap">
         <button
@@ -127,6 +138,7 @@
             <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </button>
+        <!-- Lista rolável de cards; cada card é um link para o deploy do projeto -->
         <div
           class="projects__container"
           id="projectsCarousel"
@@ -134,6 +146,7 @@
           aria-label="Carrossel de projetos"
           tabindex="0"
         >
+        <!-- Card: EcoFábrica (fundo e estilo definidos em CSS por classe project-card--visual) -->
         <article class="project-card project-card--linkable project-card--visual">
           <a
             class="project-card__link"
@@ -150,10 +163,16 @@
                 Painel de produção com <span class="tech-inline">OEE</span>, <span class="tech-inline">KPIs</span> e
                 registro diário.
               </p>
+              <div class="project-card__tags" aria-label="Tecnologias utilizadas">
+                <span class="project-card__badge">Python</span>
+                <span class="project-card__badge">Flask</span>
+                <span class="project-card__badge">MySQL</span>
+              </div>
               <span class="project-card__hint" aria-hidden="true">Abrir projeto</span>
             </div>
           </a>
         </article>
+        <!-- Card: PsicoHealth -->
         <article class="project-card project-card--linkable project-card--visual project-card--psyco">
           <a
             class="project-card__link"
@@ -167,10 +186,16 @@
             <div class="project-card__inner">
               <h3 class="project-card__title">PsicoHealth</h3>
               <p class="project-card__desc">Saúde mental e autoconhecimento com abordagem acolhedora e baseada em evidências.</p>
+              <div class="project-card__tags" aria-label="Tecnologias utilizadas">
+                <span class="project-card__badge">HTML</span>
+                <span class="project-card__badge">CSS</span>
+                <span class="project-card__badge">JS</span>
+              </div>
               <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
             </div>
           </a>
         </article>
+        <!-- Card: DentalPlan -->
         <article class="project-card project-card--linkable project-card--visual project-card--dental">
           <a
             class="project-card__link"
@@ -184,10 +209,16 @@
             <div class="project-card__inner">
               <h3 class="project-card__title">DentalPlan</h3>
               <p class="project-card__desc">Landing page de clínica odontológica com posicionamento profissional e foco em conversão.</p>
+              <div class="project-card__tags" aria-label="Tecnologias utilizadas">
+                <span class="project-card__badge">HTML</span>
+                <span class="project-card__badge">CSS</span>
+                <span class="project-card__badge">JavaScript</span>
+              </div>
               <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
             </div>
           </a>
         </article>
+        <!-- Card: Justiça Trabalhista (Escritório Jurídico) -->
         <article class="project-card project-card--linkable project-card--visual project-card--legal">
           <a
             class="project-card__link"
@@ -201,10 +232,16 @@
             <div class="project-card__inner">
               <h3 class="project-card__title">Justiça Trabalhista</h3>
               <p class="project-card__desc">Landing page institucional para advocacia trabalhista, áreas de atuação e formulário de contato.</p>
+              <div class="project-card__tags" aria-label="Tecnologias utilizadas">
+                <span class="project-card__badge">HTML</span>
+                <span class="project-card__badge">CSS</span>
+                <span class="project-card__badge">JavaScript</span>
+              </div>
               <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
             </div>
           </a>
         </article>
+        <!-- Card: DogVet -->
         <article class="project-card project-card--linkable project-card--visual project-card--vet">
           <a
             class="project-card__link"
@@ -218,6 +255,11 @@
             <div class="project-card__inner">
               <h3 class="project-card__title">DogVet</h3>
               <p class="project-card__desc">Landing page de clínica veterinária: serviços, equipe, depoimentos e contato com foco em conversão.</p>
+              <div class="project-card__tags" aria-label="Tecnologias utilizadas">
+                <span class="project-card__badge">HTML</span>
+                <span class="project-card__badge">CSS</span>
+                <span class="project-card__badge">JavaScript</span>
+              </div>
               <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
             </div>
           </a>
@@ -235,14 +277,17 @@
           </svg>
         </button>
       </div>
+      </div>
     </section>
 
+    <!-- Rodapé: ano atual preenchido pelo script inline abaixo -->
     <footer class="site-footer">
       <div class="site-footer__inner">
         <p class="site-footer__text">© <span id="footer-year"></span> Weydson Andrade. Todos os direitos reservados.</p>
       </div>
     </footer>
 
+    <!-- Script inline: ano no rodapé + abrir/fechar menu mobile e fechar ao clicar em âncora -->
     <script>
       (function () {
         var y = document.getElementById("footer-year");
@@ -271,6 +316,7 @@
         });
       })();
     </script>
+    <!-- Scripts externos (defer = executam após o HTML estar parseado) -->
     <script src="js/projects-carousel.js" defer></script>
     <script src="js/particles.js" defer></script>
   </body>

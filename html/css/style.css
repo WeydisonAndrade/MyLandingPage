@@ -1,3 +1,9 @@
+/* =============================================================================
+   Portfólio — estilos globais (html/index.html)
+   Tipografia: Inter + JetBrains Mono | Fundo: canvas de partículas atrás do conteúdo
+   ============================================================================= */
+
+/* Reset leve: normaliza caixas e remove sublinhado padrão de links */
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +11,56 @@
   text-decoration: none;
 }
 
+/* --- Espaçamento global: respiro vertical, calha lateral e hierarquia após títulos --- */
+:root {
+  --section-py-mobile: 3.75rem; /* ~60px */
+  --section-py-desktop: 6.25rem; /* ~100px */
+  --container-max: 75rem; /* 1200px */
+  --container-gutter: clamp(1.25rem, 4vw, 2rem);
+  --heading-after-spacing: 2.5rem; /* 40px: h2 → conteúdo seguinte */
+  --projects-card-gap: clamp(2rem, 2.75vw, 2.75rem); /* mín. 32px entre cards do portfólio */
+  --tech-badge-bg: rgba(255, 255, 255, 0.12);
+  --tech-badge-border: rgba(255, 255, 255, 0.14);
+  --tech-badge-text: rgba(255, 255, 255, 0.94);
+  --tech-badge-hover-bg: rgba(130, 185, 255, 0.22);
+  --tech-badge-hover-border: rgba(130, 185, 255, 0.38);
+}
+
+section {
+  padding-block: var(--section-py-mobile);
+  padding-left: max(var(--container-gutter), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--container-gutter), env(safe-area-inset-right, 0px));
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-block: var(--section-py-desktop);
+  }
+}
+
+/* Conteúdo centralizado com largura máxima (não encosta nas bordas da viewport) */
+.section-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.section-container--projects {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espaço consistente entre título de seção (h2) e bloco seguinte */
+section h2 {
+  margin-bottom: var(--heading-after-spacing);
+}
+
+/* Hero: respiro entre nome (h1) e subtítulo (h2) */
+.home-text h1 {
+  margin-bottom: 0.75rem;
+}
+
+/* Corpo: tema escuro, fonte principal e altura de linha confortável para leitura */
 body {
   position: relative;
   background: #070a12;
@@ -14,6 +70,7 @@ body {
   line-height: 1.6;
 }
 
+/* Títulos: Inter em negrito e espaçamento entre letras levemente negativo */
 h1,
 h2,
 h3 {
@@ -23,12 +80,13 @@ h3 {
   line-height: 1.2;
 }
 
+/* Parágrafos e itens de lista: interlinha consistente com o corpo */
 p,
 li {
   line-height: 1.6;
 }
 
-/* Tecnologias, siglas e termos técnicos em estilo monospace */
+/* Termos técnicos / lista de conhecimentos: aparência de código (JetBrains Mono) */
 .tech-inline,
 .know-how__list li {
   font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
@@ -39,7 +97,7 @@ li {
   font-size: 0.95em;
 }
 
-/* Conteúdo acima da rede de partículas (header usa z-index: 100 no bloco próprio) */
+/* Empilhamento: seções e rodapé ficam acima do canvas de partículas (z-index 0) */
 section,
 .site-footer,
 .section-divider {
@@ -47,7 +105,7 @@ section,
   z-index: 1;
 }
 
-/* Canvas: partículas + linhas (fundo fixo) */
+/* Canvas full-screen: animação de rede (desenhada em js/particles.js), não recebe clique */
 .particle-canvas {
   position: fixed;
   inset: 0;
@@ -58,11 +116,12 @@ section,
   display: block;
 }
 
+/* Listas sem marcador padrão (estilo controlado por seção) */
 ul {
   list-style: none;
 }
 
-/* ========== Header — mobile first ========== */
+/* ========== Cabeçalho: sticky, blur, menu colapsável no mobile ========== */
 .header {
   position: sticky;
   top: 0;
@@ -186,10 +245,9 @@ ul {
   }
 }
 
-/* ========== Home / hero — mobile first ========== */
+/* ========== Seção inicial (hero): título, subtítulo e foto ========== */
 .home {
   min-height: 40vh;
-  padding: 2rem 1.25rem;
 }
 
 .home__inner {
@@ -197,8 +255,6 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
 }
 
 .home-text {
@@ -235,12 +291,8 @@ ul {
   border-radius: 12px;
 }
 
-/* Desktop: texto à esquerda, imagem 300×300 à direita */
+/* Hero em duas colunas: texto à esquerda, foto à direita */
 @media (min-width: 768px) {
-  .home {
-    padding: 3rem 2rem;
-  }
-
   .home__inner {
     flex-direction: row;
     align-items: center;
@@ -271,7 +323,7 @@ ul {
   }
 }
 
-/* Mobile: linha um pouco “encaixada”; desktop: largura total da janela */
+/* Separador visual entre seções (linha discreta; no desktop ocupa a largura da viewport) */
 .section-divider {
   display: block;
   width: calc(100% - 2.5rem);
@@ -290,12 +342,12 @@ ul {
   }
 }
 
-.about,
-.know-how,
-.contact {
-  padding: 2rem;
+/* Parágrafo introdutório antes da lista de tecnologias */
+.know-how-text > p {
+  margin-bottom: 1.25rem;
 }
 
+/* Texto do contato limitado em largura para leitura confortável */
 .contact-text {
   max-width: 36rem;
 }
@@ -304,12 +356,8 @@ ul {
   margin-bottom: 1.25rem;
 }
 
-/* Desktop: botão WhatsApp centralizado + respiro antes do hr dos projetos */
+/* Desktop: botão WhatsApp centralizado */
 @media (min-width: 768px) {
-  .contact {
-    padding-bottom: 3rem;
-  }
-
   .contact-text {
     max-width: 42rem;
     margin-left: auto;
@@ -322,6 +370,7 @@ ul {
   }
 }
 
+/* Botão de call-to-action para WhatsApp (abre link externo definido no HTML) */
 .contact-whatsapp {
   display: inline-flex;
   align-items: center;
@@ -355,18 +404,19 @@ ul {
   flex-shrink: 0;
 }
 
-/* ========== Footer — mobile first, texto centralizado ========== */
+/* ========== Rodapé: copyright e ano (ano preenchido via script no HTML) ========== */
 .site-footer {
   width: 100%;
-  padding: 1.75rem 1.25rem;
+  padding: 2rem var(--container-gutter) 2.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(0, 0, 0, 0.25);
 }
 
 .site-footer__inner {
-  max-width: 900px;
+  max-width: var(--container-max);
   margin: 0 auto;
   text-align: center;
+  padding-inline: var(--container-gutter);
 }
 
 .site-footer__text {
@@ -377,11 +427,7 @@ ul {
 
 @media (min-width: 768px) {
   .site-footer {
-    padding: 2rem 2rem 2.25rem;
-  }
-
-  .site-footer__inner {
-    max-width: 1100px;
+    padding-block: 2.25rem 2.5rem;
   }
 
   .site-footer__text {
@@ -389,36 +435,37 @@ ul {
   }
 }
 
-/* ========== Projetos — mobile first, carrossel, cards clicáveis ========== */
+/* ========== Projetos: carrossel horizontal, botões prev/next, cards com link ========== */
 .projects {
   width: 100%;
-  padding: 1.5rem max(1rem, env(safe-area-inset-left, 0px)) 1.75rem max(1rem, env(safe-area-inset-right, 0px));
   background: transparent;
   overflow: hidden;
 }
 
+/* Título da seção Projetos (espaçamento inferior via section h2) */
 .projects__heading {
   font-size: clamp(1.25rem, 4vw, 1.625rem);
   font-weight: 700;
   text-align: center;
   color: #fff;
-  margin-bottom: clamp(1rem, 3vw, 1.75rem);
   letter-spacing: -0.02em;
   padding-inline: 0.25rem;
 }
 
+/* Área que envolve botões laterais + faixa rolável (posicionamento dos botões absoluto) */
 .projects__wrap {
   position: relative;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 clamp(2.25rem, 6vw, 3rem);
+  padding: 0 clamp(2.5rem, 7vw, 3.25rem);
 }
 
+/* Lista de cards em linha: rolagem horizontal, scroll-snap no mobile, barra nativa oculta */
 .projects__container {
   display: flex;
   flex-direction: row;
-  gap: clamp(0.75rem, 2.5vw, 2rem);
+  gap: var(--projects-card-gap);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scroll-behavior: smooth;
@@ -434,6 +481,7 @@ ul {
   display: none;
 }
 
+/* Botões circulares para rolar o carrossel (comportamento em js/projects-carousel.js) */
 .projects__nav {
   position: absolute;
   top: 50%;
@@ -495,6 +543,7 @@ ul {
   flex-shrink: 0;
 }
 
+/* Card de projeto: tamanho fluido no mobile, animação de entrada escalonada por filho */
 .project-card {
   flex: 0 0 auto;
   width: min(88vw, 20.5rem);
@@ -517,6 +566,7 @@ ul {
     border-color 0.35s ease;
 }
 
+/* Atrasos distintos na animação de entrada (efeito cascata) */
 .project-card:nth-child(1) {
   animation-delay: 0.08s;
 }
@@ -537,6 +587,7 @@ ul {
   animation-delay: 0.56s;
 }
 
+/* Animação: cards surgem de baixo com leve fade-in */
 @keyframes projectCardIn {
   to {
     opacity: 1;
@@ -544,10 +595,12 @@ ul {
   }
 }
 
+/* Variante simples de card (sem camada de imagem), só padding interno */
 .project-card__body {
   padding: 2rem 1.25rem;
 }
 
+/* Título e descrição dentro do card (tamanhos fluidos com clamp) */
 .project-card__title {
   font-size: clamp(1.02rem, 2.8vw, 1.125rem);
   font-weight: 700;
@@ -562,7 +615,29 @@ ul {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* Card com imagem de fundo + overlay (troque --project-card-bg no card ou em :root) */
+/* Tech badges: stack técnico em pílulas (JetBrains Mono) */
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card__badge {
+  display: inline-block;
+  font-family: "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.35;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background-color: var(--tech-badge-bg);
+  color: var(--tech-badge-text);
+  border: 1px solid var(--tech-badge-border);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Card “premium”: fundo em camadas (bg + overlay escuro + conteúdo por cima) */
 .project-card--visual {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -570,6 +645,7 @@ ul {
     opacity 0.75s ease;
 }
 
+/* Link cobre o card inteiro; empilhamento interno com isolation */
 .project-card--visual .project-card__link {
   position: relative;
   display: flex;
@@ -585,7 +661,7 @@ ul {
   isolation: isolate;
 }
 
-/* URL da imagem — substitua por asset local ou outro link */
+/* Camada da foto: variável --project-card-bg por projeto; fallback EcoFábrica (MinhaImagem/) */
 .project-card--visual .project-card__bg {
   position: absolute;
   inset: 0;
@@ -593,7 +669,7 @@ ul {
   background-color: #0d1117;
   background-image: var(
     --project-card-bg,
-    url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80")
+    url("../../MinhaImagem/card-ecofabrica-bg.jpg")
   );
   background-size: cover;
   background-position: center;
@@ -603,28 +679,31 @@ ul {
   will-change: transform;
 }
 
+/* PsicoHealth */
 .project-card--psyco {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
-    url("https://images.unsplash.com/photo-1489533119213-66a5cd877091?auto=format&fit=crop&w=1800&q=85");
+    url("../../MinhaImagem/card-psyco-bg.jpg");
 }
 
+/* DentalPlan */
 .project-card--dental {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
-    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=85");
+    url("../../MinhaImagem/card-dental-bg.jpg");
 }
 
-/* Escritório jurídico — troque --project-card-bg para imagem local se preferir */
+/* Justiça Trabalhista / escritório jurídico */
 .project-card--legal {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.14) 0%, rgba(8, 14, 24, 0.45) 100%),
-    url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1800&q=85");
+    url("../../MinhaImagem/card-legal-bg.jpg");
 }
 
-/* DogVet — casal de veterinários + pitbull, gato e papagaio (arte gerada para o card) */
+/* DogVet — imagem gerada para o card */
 .project-card--vet {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
-    url("../img/dogvet-card.png");
+    url("../../MinhaImagem/dogvet-card.png");
 }
 
+/* Camada semitransparente sobre a foto (escurece no hover via regras abaixo) */
 .project-card--visual .project-card__overlay {
   position: absolute;
   inset: 0;
@@ -634,6 +713,7 @@ ul {
   pointer-events: none;
 }
 
+/* Conteúdo textual alinhado ao rodapé do card */
 .project-card--visual .project-card__inner {
   position: relative;
   z-index: 2;
@@ -650,9 +730,14 @@ ul {
 }
 
 .project-card--visual .project-card__desc {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   color: rgba(255, 255, 255, 0.88);
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.project-card--visual .project-card__badge {
+  text-shadow: none;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 .project-card--visual .project-card__hint {
@@ -660,7 +745,7 @@ ul {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Card simples (sem imagem): link cobre o conteúdo */
+/* Fallback: card sem classe --visual (link como bloco preenchido) */
 .project-card:not(.project-card--visual) .project-card__link {
   display: block;
   height: 100%;
@@ -677,6 +762,7 @@ ul {
   margin-bottom: 1rem;
 }
 
+/* Texto auxiliar “Ver projeto” + seta (pseudo-elemento ::after) */
 .project-card__hint {
   display: inline-flex;
   align-items: center;
@@ -694,11 +780,20 @@ ul {
   transition: transform 0.35s ease-in-out;
 }
 
+/* Indica área clicável no card com link */
 .project-card--linkable {
   cursor: pointer;
 }
 
-/* Hover completo em dispositivos com ponteiro fino; foco/teclado mantém feedback */
+@media (hover: hover) and (pointer: fine) {
+  .project-card__badge:hover {
+    background-color: var(--tech-badge-hover-bg);
+    border-color: var(--tech-badge-hover-border);
+    color: #fff;
+  }
+}
+
+/* Hover: só em telas com mouse fino (evita “estado preso” no toque) */
 @media (hover: hover) and (pointer: fine) {
   .project-card--visual.project-card--linkable:has(.project-card__link:hover) {
     transform: translateY(-8px);
@@ -719,6 +814,7 @@ ul {
   }
 }
 
+/* Foco por teclado: elevação e zoom um pouco menores que no hover */
 .project-card--visual.project-card--linkable:has(.project-card__link:focus-visible) {
   transform: translateY(-6px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.12);
@@ -741,20 +837,17 @@ ul {
   box-shadow: inset 0 0 0 2px rgba(130, 185, 255, 0.95), 0 0 0 3px rgba(7, 10, 18, 0.9);
 }
 
+/* Tablet pequeno: snap menos rígido na rolagem horizontal */
 @media (min-width: 480px) {
   .projects__container {
     scroll-snap-type: x proximity;
   }
 }
 
+/* Desktop: largura fixa dos cards, snap desligado */
 @media (min-width: 768px) {
-  .projects {
-    padding: 2.5rem max(1.25rem, env(safe-area-inset-left, 0px)) 2.75rem max(1.25rem, env(safe-area-inset-right, 0px));
-  }
-
   .projects__wrap {
-    max-width: 1200px;
-    padding: 0 3rem;
+    padding: 0 clamp(3rem, 8vw, 3.5rem);
   }
 
   .projects__container {
@@ -773,6 +866,7 @@ ul {
   }
 }
 
+/* Telas largas: botões de navegação um pouco maiores */
 @media (min-width: 1024px) {
   .projects__nav {
     width: 3rem;
@@ -785,6 +879,7 @@ ul {
   }
 }
 
+/* Acessibilidade: usuário pediu menos movimento — remove animação de entrada dos cards */
 @media (prefers-reduced-motion: reduce) {
   .projects__container {
     scroll-behavior: auto;
