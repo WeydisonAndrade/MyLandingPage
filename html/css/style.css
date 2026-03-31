@@ -1,0 +1,650 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+body {
+  position: relative;
+  background: #070a12;
+  color: #eee;
+  min-height: 100vh;
+}
+
+/* Conteúdo acima da rede de partículas (header usa z-index: 100 no bloco próprio) */
+section,
+.site-footer,
+.section-divider {
+  position: relative;
+  z-index: 1;
+}
+
+/* Canvas: partículas + linhas (fundo fixo) */
+.particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ========== Header — mobile first ========== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Botão hambúrguer — visível só no mobile */
+.header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.header__toggle:hover,
+.header__toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+}
+
+.header__bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Ícone vira X quando aberto */
+.header__toggle.is-open .header__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__toggle.is-open .header__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.header__toggle.is-open .header__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu: fechado no mobile (full width abaixo do botão) */
+.header__nav {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.header__nav.is-open {
+  max-height: 320px;
+  opacity: 1;
+}
+
+.header__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+.header__list a {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.header__list a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ========== Desktop: links um ao lado do outro, sem hambúrguer ========== */
+@media (min-width: 768px) {
+  .header {
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 1.25rem 3rem;
+  }
+
+  .header__toggle {
+    display: none;
+  }
+
+  .header__nav {
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    opacity: 1;
+  }
+
+  .header__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 0;
+  }
+
+  .header__list a {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ========== Home / hero — mobile first ========== */
+.home {
+  min-height: 40vh;
+  padding: 2rem 1.25rem;
+}
+
+.home__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-text {
+  width: 100%;
+  text-align: center;
+}
+
+.home-text h1,
+.home-text h2,
+.home-text p {
+  color: #fff;
+}
+
+/* Foto: tamanho maior; contain = você aparece inteiro(a), sem recorte */
+.home__photo {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: min(100%, 380px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.home__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: min(68vh, 520px);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+}
+
+/* Desktop: texto à esquerda, imagem 300×300 à direita */
+@media (min-width: 768px) {
+  .home {
+    padding: 3rem 2rem;
+  }
+
+  .home__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .home-text {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .home__photo {
+    width: min(440px, 42vw);
+    max-width: 440px;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .home__img {
+    width: 100%;
+    max-width: 440px;
+    max-height: min(78vh, 640px);
+    height: auto;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+}
+
+/* Mobile: linha um pouco “encaixada”; desktop: largura total da janela */
+.section-divider {
+  display: block;
+  width: calc(100% - 2.5rem);
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+}
+
+.about,
+.know-how,
+.contact {
+  padding: 2rem;
+}
+
+.contact-text {
+  max-width: 36rem;
+}
+
+.contact-text p {
+  margin-bottom: 1.25rem;
+}
+
+/* Desktop: botão WhatsApp centralizado + respiro antes do hr dos projetos */
+@media (min-width: 768px) {
+  .contact {
+    padding-bottom: 3rem;
+  }
+
+  .contact-text {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .contact + .section-divider--after-contact {
+    margin-top: 1.75rem;
+  }
+}
+
+.contact-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #fff;
+  background: linear-gradient(145deg, #25d366, #128c7e);
+  box-shadow: 0 2px 16px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.contact-whatsapp:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 4px 22px rgba(37, 211, 102, 0.45);
+  transform: translateY(-1px);
+}
+
+.contact-whatsapp:focus-visible {
+  outline: 2px solid #25d366;
+  outline-offset: 3px;
+}
+
+.contact-whatsapp__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
+}
+
+/* ========== Footer — mobile first, texto centralizado ========== */
+.site-footer {
+  width: 100%;
+  padding: 1.75rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.site-footer__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-footer__text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    padding: 2rem 2rem 2.25rem;
+  }
+
+  .site-footer__inner {
+    max-width: 1100px;
+  }
+
+  .site-footer__text {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ========== Projetos — cards, scroll horizontal, card clicável ========== */
+.projects {
+  width: 100%;
+  padding: 2rem 1.25rem;
+  background: transparent;
+  overflow: hidden;
+}
+
+.projects__heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.projects__container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: auto;
+  scrollbar-width: auto;
+  scrollbar-color: #555 #222;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects__container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.projects__container::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+.project-card {
+  min-width: 260px;
+  max-width: 300px;
+  flex-shrink: 0;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: projectCardIn 0.75s ease forwards;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.project-card:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes projectCardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card__body {
+  padding: 2rem 1.25rem;
+}
+
+.project-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.project-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Card com imagem de fundo + overlay (troque --project-card-bg no card ou em :root) */
+.project-card--visual {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.45s ease-in-out, box-shadow 0.45s ease-in-out, border-color 0.45s ease-in-out,
+    opacity 0.75s ease;
+}
+
+.project-card--visual .project-card__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  isolation: isolate;
+}
+
+/* URL da imagem — substitua por asset local ou outro link */
+.project-card--visual .project-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #0d1117;
+  background-image: var(
+    --project-card-bg,
+    url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: transform 0.55s ease-in-out;
+  will-change: transform;
+}
+
+.project-card--psyco {
+  --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
+    url("https://images.unsplash.com/photo-1489533119213-66a5cd877091?auto=format&fit=crop&w=1800&q=85");
+}
+
+.project-card--dental {
+  --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
+    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=85");
+}
+
+.project-card--visual .project-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(4, 8, 16, 0.58);
+  transition: background 0.45s ease-in-out;
+  pointer-events: none;
+}
+
+.project-card--visual .project-card__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  padding: 2rem 1.35rem;
+  min-height: inherit;
+}
+
+.project-card--visual .project-card__title {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+.project-card--visual .project-card__desc {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.project-card--visual .project-card__hint {
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Card simples (sem imagem): link cobre o conteúdo */
+.project-card:not(.project-card--visual) .project-card__link {
+  display: block;
+  height: 100%;
+  padding: 2rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: inherit;
+  outline: none;
+  transition: color 0.2s ease;
+}
+
+.project-card:not(.project-card--visual) .project-card__link .project-card__desc {
+  margin-bottom: 1rem;
+}
+
+.project-card__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.project-card__hint::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 0.35s ease-in-out;
+}
+
+.project-card--linkable {
+  cursor: pointer;
+}
+
+.project-card--visual.project-card--linkable:has(.project-card__link:hover),
+.project-card--visual.project-card--linkable:has(.project-card__link:focus-visible) {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.project-card--visual.project-card--linkable:has(.project-card__link:hover) .project-card__bg,
+.project-card--visual.project-card--linkable:has(.project-card__link:focus-visible) .project-card__bg {
+  transform: scale(1.07);
+}
+
+.project-card--visual.project-card--linkable:has(.project-card__link:hover) .project-card__overlay,
+.project-card--visual.project-card--linkable:has(.project-card__link:focus-visible) .project-card__overlay {
+  background: rgba(2, 5, 12, 0.72);
+}
+
+.project-card--visual.project-card--linkable:has(.project-card__link:hover) .project-card__hint::after,
+.project-card--visual.project-card--linkable:has(.project-card__link:focus-visible) .project-card__hint::after {
+  transform: translateX(5px);
+}
+
+.project-card--visual .project-card__link:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(130, 185, 255, 0.95), 0 0 0 3px rgba(7, 10, 18, 0.9);
+}
+
+@media (min-width: 768px) {
+  .project-card--visual .project-card__link {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .projects__container {
+    gap: 1rem;
+  }
+
+  .project-card {
+    min-width: 80vw;
+    max-width: 90vw;
+  }
+
+  .projects__heading {
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects {
+    padding: 2.5rem 2rem;
+  }
+
+  .projects__heading {
+    font-size: 1.625rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .projects__container {
+    justify-content: center;
+  }
+
+  .project-card {
+    min-width: 280px;
+    max-width: 340px;
+  }
+}

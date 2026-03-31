@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weydison Andrade</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <canvas id="particle-network" class="particle-canvas" aria-hidden="true"></canvas>
+
+    <header class="header">
+      <button
+        class="header__toggle"
+        type="button"
+        id="menuToggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="headerNav"
+      >
+        <span class="header__bar"></span>
+        <span class="header__bar"></span>
+        <span class="header__bar"></span>
+      </button>
+
+      <nav class="header__nav" id="headerNav" aria-label="Principal">
+        <ul class="header__list">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#conhecimentos">Conhecimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="home" id="inicio">
+      <div class="home__inner">
+        <div class="home-text">
+          <h1>Weydison Andrade</h1>
+          <h2>Estudante de Engenharia de Software</h2>
+          <p>Transformando ideias em software.</p>
+        </div>
+        <div class="home__photo">
+          <!-- Caminho relativo ao index.html: pasta MinhaImagem fica em myLandingPage/ (um nível acima de html/) -->
+          <img
+            class="home__img"
+            src="../MinhaImagem/Eu.jpeg"
+            alt="Foto de Weydison Andrade"
+            width="440"
+            height="640"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+    <hr class="section-divider" />
+    <section class="about" id="sobre">
+      <div class="about-text">
+        <h2>Sobre mim</h2>
+        <p>Sou estudante de Engenharia de Software na Centro Universitário Internacional UNINTER.</p>
+      </div>
+    </section>
+    <hr class="section-divider" />
+    <section class="know-how" id="conhecimentos">
+      <div class="know-how-text">
+        <h2>Conhecimentos</h2>
+        <p>Tenho conhecimento nas seguintes tecnologias e ferramentas de melhoria contínua:</p>
+        <ul>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>MySQL</li>
+            <li>Cursor</li>
+            <li>Lean Manufacturing</li>
+            <li>Six Sigma</li>
+            <li>Kanban</li>
+            <li>Scrum</li>
+            <li>Bizagi</li>
+            <li>Trello</li>
+            <li>MASP</li>
+            <li>Melhoria Contínua</li>
+        </ul>
+      </div>
+    </section>
+    <hr class="section-divider" />
+    <section class="contact" id="contato">
+      <div class="contact-text">
+        <h2>Contato</h2>
+        <p>Entre em contato para oportunidades, projetos ou uma boa conversa sobre código!</p>
+        <a
+          class="contact-whatsapp"
+          href="https://wa.me/5592992929044?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Conversar no WhatsApp"
+        >
+          <svg class="contact-whatsapp__icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          Entrar em contato com o WhatsApp
+        </a>
+      </div>
+    </section>
+    <hr class="section-divider section-divider--after-contact" />
+    <section class="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="projects__heading">Projetos</h2>
+      <div class="projects__container">
+        <article class="project-card project-card--linkable project-card--visual">
+          <a
+            class="project-card__link"
+            href="https://smarth-factory.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="EcoFábrica: painel de produção com OEE e KPIs. Abre em nova aba."
+          >
+            <span class="project-card__bg" aria-hidden="true"></span>
+            <span class="project-card__overlay" aria-hidden="true"></span>
+            <div class="project-card__inner">
+              <h3 class="project-card__title">EcoFábrica</h3>
+              <p class="project-card__desc">Painel de produção com OEE, KPIs e registro diário.</p>
+              <span class="project-card__hint" aria-hidden="true">Abrir projeto</span>
+            </div>
+          </a>
+        </article>
+        <article class="project-card project-card--linkable project-card--visual project-card--psyco">
+          <a
+            class="project-card__link"
+            href="https://psyco-health.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="PsicoHealth: psicologia com foco em acolhimento e equilíbrio. Abre em nova aba."
+          >
+            <span class="project-card__bg" aria-hidden="true"></span>
+            <span class="project-card__overlay" aria-hidden="true"></span>
+            <div class="project-card__inner">
+              <h3 class="project-card__title">PsicoHealth</h3>
+              <p class="project-card__desc">Saúde mental e autoconhecimento com abordagem acolhedora e baseada em evidências.</p>
+              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+            </div>
+          </a>
+        </article>
+        <article class="project-card project-card--linkable project-card--visual project-card--dental">
+          <a
+            class="project-card__link"
+            href="https://dental-plan-beta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="DentalPlan: clínica odontológica com foco em atendimento e tecnologia. Abre em nova aba."
+          >
+            <span class="project-card__bg" aria-hidden="true"></span>
+            <span class="project-card__overlay" aria-hidden="true"></span>
+            <div class="project-card__inner">
+              <h3 class="project-card__title">DentalPlan</h3>
+              <p class="project-card__desc">Landing page de clínica odontológica com posicionamento profissional e foco em conversão.</p>
+              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© <span id="footer-year"></span> Weydson Andrade. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var y = document.getElementById("footer-year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        var btn = document.getElementById("menuToggle");
+        var nav = document.getElementById("headerNav");
+        if (!btn || !nav) return;
+
+        btn.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          btn.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            if (window.matchMedia("(max-width: 767px)").matches) {
+              nav.classList.remove("is-open");
+              btn.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              btn.setAttribute("aria-label", "Abrir menu");
+            }
+          });
+        });
+      })();
+    </script>
+    <script src="js/particles.js" defer></script>
+  </body>
+</html>
