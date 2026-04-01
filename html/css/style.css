@@ -898,6 +898,7 @@ ul {
   padding: 0;
 }
 
+/* Mobile-first: links sociais — área de toque + cores de marca em todas as telas */
 .site-footer__social-link {
   display: inline-block;
   padding: 10px;
@@ -907,11 +908,22 @@ ul {
   text-align: center;
   line-height: 0;
   vertical-align: middle;
-  color: rgba(255, 255, 255, 0.38);
   outline: none;
   border-radius: 0.35rem;
   -webkit-tap-highlight-color: transparent;
   transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.site-footer__social-link--linkedin {
+  color: #0077b5;
+}
+
+.site-footer__social-link--instagram .site-footer__social-icon--instagram path {
+  fill: url(#footer-instagram-gradient);
+}
+
+.site-footer__social-link--github {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Font Awesome / SVG: ~24px, centrado no link (inline-block + line-height 0 no <a>) */
@@ -933,58 +945,30 @@ ul {
   transition: fill 0.3s ease;
 }
 
+/* Desktop (mouse): elevação + brilho extra no hover (cores de marca já vêm da base) */
 @media (hover: hover) and (pointer: fine) {
   .site-footer__social-link:hover {
     transform: translateY(-3px);
-  }
-
-  .site-footer__social-link--linkedin:hover {
-    color: #0077b5;
-  }
-
-  .site-footer__social-link--instagram:hover .site-footer__social-icon--instagram path {
-    fill: url(#footer-instagram-gradient);
+    filter: brightness(1.1);
   }
 
   .site-footer__social-link--github:hover {
     color: #ffffff;
+    filter: brightness(1.12);
   }
 }
 
-/* Toque / mouse: feedback imediato ao pressionar (mobile e desktop) */
+/* Toque / desktop: feedback ao pressionar */
 .site-footer__social-link:active {
   transform: translateY(-1px);
+  filter: brightness(1.08);
 }
 
-.site-footer__social-link--linkedin:active {
-  color: #0077b5;
-}
-
-.site-footer__social-link--instagram:active .site-footer__social-icon--instagram path {
-  fill: url(#footer-instagram-gradient);
-}
-
-.site-footer__social-link--github:active {
-  color: #ffffff;
-}
-
-/* Mobile: ícones mais legíveis — cores de marca por padrão (sem depender de hover) */
+/* Mobile: toque sem “salto” vertical, só reforço de brilho */
 @media (max-width: 768px) {
-  .site-footer__social-link--linkedin {
-    color: #0077b5;
-  }
-
-  .site-footer__social-link--instagram .site-footer__social-icon--instagram path {
-    fill: url(#footer-instagram-gradient);
-  }
-
-  .site-footer__social-link--github {
-    color: rgba(255, 255, 255, 0.92);
-  }
-
   .site-footer__social-link:active {
     transform: translateY(0);
-    filter: brightness(1.12);
+    filter: brightness(1.14);
   }
 }
 
