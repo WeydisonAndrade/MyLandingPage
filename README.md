@@ -57,7 +57,7 @@ O arquivo [`vercel.json`](vercel.json) redireciona as rotas para a pasta `html/`
 
 ## Autor
 
-**Weydison Andrade** — Engenheiro de Software em formação; experiência em chão de fábrica, melhoria contínua e transição para TI (Web, Dados, QA).
+**Weydison Andrade** — Engenheiro de Software em formação; experiência em chão de fábrica, melhoria contínua e transição de carreira para TI (Web, Dados, QA).
 
 ---
 
