@@ -899,27 +899,29 @@ ul {
 }
 
 .site-footer__social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-  padding: 0.625rem;
+  display: inline-block;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 0;
+  vertical-align: middle;
   color: rgba(255, 255, 255, 0.38);
   outline: none;
   border-radius: 0.35rem;
-  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 
-/* Font Awesome / SVG: tamanho ~24px e alinhamento consistente */
+/* Font Awesome / SVG: ~24px, centrado no link (inline-block + line-height 0 no <a>) */
 .site-footer__social-icon {
   font-size: 1.5rem;
   line-height: 1;
   width: 1.5rem;
   height: 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  vertical-align: middle;
   flex-shrink: 0;
 }
 
@@ -946,6 +948,43 @@ ul {
 
   .site-footer__social-link--github:hover {
     color: #ffffff;
+  }
+}
+
+/* Toque / mouse: feedback imediato ao pressionar (mobile e desktop) */
+.site-footer__social-link:active {
+  transform: translateY(-1px);
+}
+
+.site-footer__social-link--linkedin:active {
+  color: #0077b5;
+}
+
+.site-footer__social-link--instagram:active .site-footer__social-icon--instagram path {
+  fill: url(#footer-instagram-gradient);
+}
+
+.site-footer__social-link--github:active {
+  color: #ffffff;
+}
+
+/* Mobile: ícones mais legíveis — cores de marca por padrão (sem depender de hover) */
+@media (max-width: 768px) {
+  .site-footer__social-link--linkedin {
+    color: #0077b5;
+  }
+
+  .site-footer__social-link--instagram .site-footer__social-icon--instagram path {
+    fill: url(#footer-instagram-gradient);
+  }
+
+  .site-footer__social-link--github {
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .site-footer__social-link:active {
+    transform: translateY(0);
+    filter: brightness(1.12);
   }
 }
 
