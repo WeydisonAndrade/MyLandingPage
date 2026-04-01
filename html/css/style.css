@@ -268,27 +268,206 @@ ul {
   color: #fff;
 }
 
-/* Foto: tamanho maior; contain = você aparece inteiro(a), sem recorte */
+/* Hero — foto circular com trilhas de circuito + anel animado (ciano / verde limão) */
+@keyframes circuitTraceFlow {
+  0%,
+  100% {
+    opacity: 0.42;
+    filter: brightness(0.92) saturate(1);
+  }
+
+  7% {
+    opacity: 0.78;
+  }
+
+  9% {
+    opacity: 0.38;
+  }
+
+  31% {
+    opacity: 0.55;
+  }
+
+  34% {
+    opacity: 0.88;
+  }
+
+  36% {
+    opacity: 0.45;
+  }
+
+  58% {
+    opacity: 0.62;
+  }
+
+  61% {
+    opacity: 0.35;
+  }
+
+  74% {
+    opacity: 0.92;
+  }
+
+  77% {
+    opacity: 0.48;
+  }
+}
+
+@keyframes circuitBorderPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  11% {
+    opacity: 0.95;
+  }
+
+  13% {
+    opacity: 0.4;
+  }
+
+  27% {
+    opacity: 0.85;
+  }
+
+  29% {
+    opacity: 0.32;
+  }
+
+  52% {
+    opacity: 0.78;
+  }
+
+  55% {
+    opacity: 0.36;
+  }
+
+  71% {
+    opacity: 1;
+  }
+
+  73% {
+    opacity: 0.42;
+  }
+
+  88% {
+    opacity: 0.68;
+  }
+}
+
+@keyframes circuitRingSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .home__photo {
   flex-shrink: 0;
   width: 100%;
-  max-width: min(100%, 380px);
+  max-width: min(100%, 360px);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
+  margin-inline: auto;
 }
 
+.home__photo-wrap {
+  --photo-ring-inset: 12px;
+  position: relative;
+  width: min(88vw, 300px);
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  isolation: isolate;
+}
+
+/* Trilhas de circuito (gradientes repetitivos + hotspots) */
+.home__photo-circuit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background-color: rgba(4, 10, 20, 0.92);
+  background-image:
+    radial-gradient(circle at 22% 28%, rgba(0, 230, 255, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 78% 72%, rgba(140, 255, 90, 0.1) 0%, transparent 38%),
+    radial-gradient(circle at 50% 50%, rgba(130, 185, 255, 0.06) 0%, transparent 55%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 10px,
+      rgba(0, 230, 255, 0.07) 10px,
+      rgba(0, 230, 255, 0.07) 11px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 10px,
+      rgba(120, 255, 200, 0.055) 10px,
+      rgba(120, 255, 200, 0.055) 11px
+    );
+  background-blend-mode: normal, normal, normal, normal, normal;
+  animation: circuitTraceFlow 4.2s ease-in-out infinite;
+}
+
+/* Anel de segmentos (máscara = só a borda) + rotação lenta + flicker — inset 0 para caber no wrap com overflow:hidden */
+.home__photo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform-origin: 50% 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 22deg,
+    rgba(0, 255, 220, 0.75) 22deg 32deg,
+    transparent 32deg 58deg,
+    rgba(0, 230, 255, 0.65) 58deg 68deg,
+    transparent 68deg 112deg,
+    rgba(160, 255, 80, 0.55) 112deg 124deg,
+    transparent 124deg 160deg,
+    rgba(0, 240, 255, 0.7) 160deg 172deg,
+    transparent 172deg 220deg,
+    rgba(100, 255, 180, 0.5) 220deg 232deg,
+    transparent 232deg 288deg,
+    rgba(0, 230, 255, 0.6) 288deg 300deg,
+    transparent 300deg 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px) 100%);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px) 100%);
+  animation: circuitRingSpin 16s linear infinite, circuitBorderPulse 2.85s ease-in-out infinite;
+}
+
+/* Núcleo da foto: recuo idêntico nos quatro lados (faixa do circuito + anel) */
+.home__photo-core {
+  position: absolute;
+  top: var(--photo-ring-inset);
+  right: var(--photo-ring-inset);
+  bottom: var(--photo-ring-inset);
+  left: var(--photo-ring-inset);
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 2;
+  background: #070a12;
+  box-shadow:
+    0 0 0 1px rgba(0, 230, 255, 0.12),
+    inset 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+/* contain = foto inteira dentro do círculo; faixas laterais/superiores usam o fundo do .home__photo-core */
 .home__img {
   display: block;
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: min(68vh, 520px);
+  height: 100%;
   object-fit: contain;
   object-position: center;
-  border-radius: 12px;
 }
 
 /* Hero em duas colunas: texto à esquerda, foto à direita */
@@ -307,19 +486,16 @@ ul {
   }
 
   .home__photo {
-    width: min(440px, 42vw);
-    max-width: 440px;
+    max-width: none;
+    width: auto;
     justify-content: flex-end;
     margin-left: auto;
   }
 
-  .home__img {
-    width: 100%;
-    max-width: 440px;
-    max-height: min(78vh, 640px);
-    height: auto;
-    flex-shrink: 0;
-    object-fit: contain;
+  .home__photo-wrap {
+    width: min(320px, 36vw);
+    max-width: 320px;
+    --photo-ring-inset: 13px;
   }
 }
 
@@ -1264,6 +1440,20 @@ ul {
   .project-card {
     animation: none;
     opacity: 1;
+    transform: none;
+  }
+
+  .home__photo-circuit,
+  .home__photo-ring {
+    animation: none;
+  }
+
+  .home__photo-circuit {
+    opacity: 0.52;
+  }
+
+  .home__photo-ring {
+    opacity: 0.55;
     transform: none;
   }
 }
