@@ -5,6 +5,7 @@
  * - Botões prev/next desabilitam nos extremos do scroll.
  * - Teclado: setas ← / → quando o carrossel tem foco (tabindex no HTML).
  * - Clique em “anterior”: animação visual (classe + CSS @keyframes projects-nav-tap-prev).
+ * - Mobile: tabindex do carrossel -1 em viewport estreita; correção de scroll ao abrir links externos.
  *
  * Depende dos ids: projectsCarousel, projectsPrev, projectsNext.
  */
@@ -18,6 +19,56 @@
 
   // Se algum elemento obrigatório não existir, não inicializa (evita erros em outras páginas)
   if (!carousel || !prev || !next) return;
+
+  /**
+   * Mobile (viewport estreita): o carrossel deixa de ser focável com Tab.
+   * Evita que o WebKit/iOS faça scroll da página para “mostrar” o region ao tocar links internos.
+   */
+  var mqMobile = typeof window.matchMedia === "function" ? window.matchMedia("(max-width: 767.98px)") : null;
+
+  function syncCarouselTabIndex() {
+    if (!mqMobile) return;
+    carousel.tabIndex = mqMobile.matches ? -1 : 0;
+  }
+
+  syncCarouselTabIndex();
+  if (mqMobile) {
+    if (typeof mqMobile.addEventListener === "function") {
+      mqMobile.addEventListener("change", syncCarouselTabIndex);
+    } else if (typeof mqMobile.addListener === "function") {
+      mqMobile.addListener(syncCarouselTabIndex);
+    }
+  }
+
+  /**
+   * iOS/WebKit: links dentro de overflow-x: auto às vezes deslocam o scroll vertical da janela
+   * ao abrir target=_blank. Preserva scrollY nos frames seguintes ao clique (só em viewport mobile).
+   */
+  carousel.addEventListener(
+    "click",
+    function (e) {
+      if (!mqMobile || !mqMobile.matches) return;
+      var t = e.target;
+      if (!t || typeof t.closest !== "function") return;
+      var a = t.closest("a.project-card__link");
+      if (!a || !carousel.contains(a) || a.getAttribute("target") !== "_blank") return;
+      var y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      requestAnimationFrame(function () {
+        window.scrollTo(0, y);
+        requestAnimationFrame(function () {
+          window.scrollTo(0, y);
+        });
+      });
+    },
+    true
+  );
+
+  document.addEventListener("visibilitychange", function () {
+    if (!mqMobile || !mqMobile.matches || document.visibilityState !== "visible") return;
+    var ae = document.activeElement;
+    if (!ae || ae === document.body || !carousel.contains(ae)) return;
+    if (typeof ae.blur === "function") ae.blur();
+  });
 
   // Respeita preferência do sistema/usuário por menos animação (sem nudge no ícone)
   var reduceMotion =
