@@ -1279,6 +1279,10 @@ ul {
   animation-delay: 0.56s;
 }
 
+.project-card:nth-child(6) {
+  animation-delay: 0.68s;
+}
+
 /* Animação: cards surgem de baixo com leve fade-in */
 @keyframes projectCardIn {
   to {
@@ -1393,6 +1397,12 @@ ul {
 .project-card--vet {
   --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.12) 0%, rgba(8, 14, 24, 0.42) 100%),
     url("../../MinhaImagem/dogvet-card.png");
+}
+
+/* JC Barbearia — foto Unsplash (barbeiro com cliente); licença Unsplash / Georgi Kalaydzhiev */
+.project-card--jcbarbearia {
+  --project-card-bg: linear-gradient(180deg, rgba(8, 14, 24, 0.18) 0%, rgba(8, 14, 24, 0.48) 100%),
+    url("../../MinhaImagem/card-jcbarbearia-bg.jpg");
 }
 
 /* Camada semitransparente sobre a foto (escurece no hover via regras abaixo) */
