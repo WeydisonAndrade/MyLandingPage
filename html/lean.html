@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- lean.html — Página de artigo: Lean Six Sigma na Engenharia de Software (destino do primeiro card em artigos.html) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Metadados e responsividade: codificação UTF-8 e escala correta em dispositivos móveis -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título e descrição exibidos na aba do navegador e usados por buscadores / compartilhamento -->
+    <title>Lean Six Sigma aplicado à Engenharia de Software · Weydison Andrade</title>
+    <meta
+      name="description"
+      content="Lean Six Sigma, DMAIC e aplicação à Engenharia de Software: qualidade, processos e perspectiva de Engenharia de Produção."
+    />
+    <!-- Google Fonts: Inter (texto) e JetBrains Mono (metadados e citações, via CSS global) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome: ícones do rodapé (LinkedIn, GitHub); Instagram usa SVG inline com gradiente -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Estilos do portfólio (layout, tema escuro, artigo, cabeçalho e rodapé) -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <!-- page-artigos: coluna flexível min-height 100vh | page-article: área principal do artigo acima do canvas -->
+  <body class="page-artigos page-article">
+    <!-- Fundo animado: rede de partículas desenhada em Canvas (js/particles.js); fixo, sem interação, atrás do conteúdo -->
+    <canvas id="particle-network" class="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Cabeçalho global: menu hambúrguer no mobile + links para âncoras do index e lista de artigos -->
+    <header class="header">
+      <!-- Botão que alterna visibilidade do menu em telas estreitas (aria-* para leitores de tela) -->
+      <button
+        class="header__toggle"
+        type="button"
+        id="menuToggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="headerNav"
+      >
+        <span class="header__bar"></span>
+        <span class="header__bar"></span>
+        <span class="header__bar"></span>
+      </button>
+
+      <!-- Navegação principal: mesma estrutura das outras páginas HTML do projeto -->
+      <nav class="header__nav" id="headerNav" aria-label="Principal">
+        <ul class="header__list">
+          <li><a href="index.html#inicio">Início</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#conhecimentos">Conhecimentos</a></li>
+          <li><a href="index.html#projetos">Projetos</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="artigos.html">Artigos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Conteúdo principal da página: artigo único (id para acessibilidade / âncora) -->
+    <main class="articles-main" id="conteudo-principal">
+      <!-- Artigo semântico; lang reforça idioma do texto acadêmico -->
+      <article class="article-view__article" lang="pt-BR">
+        <!-- Largura máxima centralizada (section-container) + coluna de leitura (article-view__inner) -->
+        <div class="section-container article-view__inner">
+          <!-- Navegação secundária: retorno à listagem de artigos -->
+          <p class="article-view__back">
+            <a class="article-view__back-link" href="artigos.html">← Voltar aos artigos</a>
+          </p>
+
+          <!-- Cabeçalho do post: categoria, título e meta (data + tempo de leitura) -->
+          <header class="article-view__header">
+            <p class="article-view__kicker">
+              <span class="project-card__badge articles-card__category">Lean IT</span>
+            </p>
+            <h1 class="article-view__title">Lean Six Sigma Aplicado à Testes de Software</h1>
+            <p class="article-view__meta">
+              <time datetime="2025-02-10">10 fev. 2025</time>
+              <span aria-hidden="true">·</span>
+              <span>8 min de leitura</span>
+            </p>
+          </header>
+
+          <!-- Corpo do texto: parágrafos, destaque inicial (lead) e citações em blockquote -->
+          <div class="article-view__body">
+            <!-- Parágrafo de abertura com ênfase visual (article-view__lead) -->
+            <p class="article-view__lead">
+              O Lean Six Sigma, originalmente difundido por organizações como a Motorola e a General Electric,
+              consolidou-se como uma abordagem robusta para melhoria contínua, combinando a eliminação de desperdícios
+              (Lean) com a redução de variabilidade e defeitos (Six Sigma). Ao ser aplicado no contexto da Engenharia de
+              Software, especialmente sob a ótica de um Engenheiro de Produção em formação, essa metodologia apresenta
+              contribuições significativas para a qualidade dos produtos e processos de desenvolvimento.
+            </p>
+
+            <!-- Introdução ao DMAIC e transição para a citação de Eckes -->
+            <p>
+              Do ponto de vista conceitual, o Lean Six Sigma baseia-se no ciclo DMAIC (Define, Measure, Analyze, Improve,
+              Control), que fornece uma estrutura sistemática para identificação e resolução de problemas. Segundo George
+              Eckes (2003):
+            </p>
+
+            <!-- Citação direta: tipografia monoespaçada via CSS (article-view__quote) -->
+            <blockquote class="article-view__quote">
+              <p>“O DMAIC é uma abordagem disciplinada que orienta a melhoria de processos por meio de dados e análise estruturada.”</p>
+              <cite class="article-view__cite">George Eckes, 2003</cite>
+            </blockquote>
+
+            <!-- Aplicação do DMAIC ao desenvolvimento de software -->
+            <p>
+              No desenvolvimento de software, essa lógica pode ser aplicada para reduzir bugs, melhorar a previsibilidade
+              de entregas e aumentar a satisfação do cliente.
+            </p>
+
+            <!-- Fases Define e Measure; introdução à citação de Sommerville -->
+            <p>
+              Na fase Define, são estabelecidos os requisitos do cliente e os objetivos do projeto, alinhando-se com
+              práticas modernas como levantamento de requisitos e definição de backlog. Já na fase Measure, métricas de
+              software — como densidade de defeitos, lead time e throughput — são coletadas. Conforme argumenta Ian
+              Sommerville (2011):
+            </p>
+
+            <blockquote class="article-view__quote">
+              <p>“A medição é essencial para compreender e melhorar a qualidade do software.”</p>
+              <cite class="article-view__cite">Ian Sommerville, 2011</cite>
+            </blockquote>
+
+            <p>Isso reforça a sinergia entre Six Sigma e Engenharia de Software.</p>
+
+            <!-- Fases Analyze, Improve e Control do ciclo -->
+            <p>
+              A etapa Analyze permite identificar causas-raiz de problemas, como falhas recorrentes em código ou
+              gargalos no fluxo de desenvolvimento. Ferramentas como Diagrama de Ishikawa e análise de regressão podem
+              ser utilizadas. Na sequência, a fase Improve propõe soluções, como automação de testes, integração
+              contínua e refatoração de código. Por fim, o Control garante a sustentabilidade das melhorias, com uso de
+              dashboards, monitoramento contínuo e práticas DevOps.
+            </p>
+
+            <!-- Perspectiva Lean (muda) e transição para Poppendieck -->
+            <p>
+              Sob a perspectiva Lean, a eliminação de desperdícios (<em lang="ja">muda</em>) é altamente relevante no
+              desenvolvimento de software. Atividades como retrabalho, funcionalidades desnecessárias e tempos de espera
+              entre etapas são exemplos clássicos. De acordo com Mary Poppendieck (2003):
+            </p>
+
+            <blockquote class="article-view__quote">
+              <p>“O pensamento Lean aplicado ao software busca entregar valor ao cliente com o mínimo de desperdício.”</p>
+              <cite class="article-view__cite">Mary Poppendieck, 2003</cite>
+            </blockquote>
+
+            <p>Isso se traduz em ciclos de desenvolvimento mais ágeis e eficientes.</p>
+
+            <!-- Impacto organizacional, CMMI e práticas ágeis -->
+            <p>
+              Além disso, o Lean Six Sigma contribui para a padronização de processos, melhoria da qualidade do código e
+              aumento da maturidade organizacional. Empresas que adotam essa abordagem tendem a apresentar menor taxa de
+              defeitos em produção e maior previsibilidade nos prazos. Isso está alinhado com modelos de qualidade como
+              CMMI e práticas ágeis, criando um ambiente híbrido orientado tanto à eficiência quanto à adaptabilidade.
+            </p>
+
+            <!-- Conclusão: síntese e posicionamento do autor (Eng. Produção + Eng. Software) -->
+            <p>
+              Em síntese, o Lean Six Sigma oferece uma base metodológica sólida para aprimorar a qualidade de software,
+              integrando princípios estatísticos e de gestão de processos com práticas modernas de desenvolvimento. Para
+              um Engenheiro de Produção em formação em Engenharia de Software, sua aplicação representa uma oportunidade
+              estratégica de atuar na interseção entre eficiência operacional e excelência tecnológica, promovendo
+              entregas mais confiáveis, eficientes e alinhadas às necessidades do cliente.
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Rodapé global: redes com links externos (target _blank + noopener) e ano dinâmico via script -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <nav class="site-footer__social" aria-label="Redes sociais">
+          <ul class="site-footer__social-list">
+            <!-- LinkedIn: ícone Font Awesome -->
+            <li>
+              <a
+                class="site-footer__social-link site-footer__social-link--linkedin"
+                href="https://www.linkedin.com/in/weydison-andrade-188b41334/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Perfil de Weydison Andrade no LinkedIn (abre em nova aba)"
+              >
+                <i class="fa-brands fa-linkedin-in site-footer__social-icon" aria-hidden="true"></i>
+              </a>
+            </li>
+            <!-- Instagram: SVG + linearGradient id footer-instagram-gradient (referenciado no style.css) -->
+            <li>
+              <a
+                class="site-footer__social-link site-footer__social-link--instagram"
+                href="https://www.instagram.com/weydison.andrade/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Perfil de Weydison Andrade no Instagram (abre em nova aba)"
+              >
+                <svg
+                  class="site-footer__social-icon site-footer__social-icon--instagram"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <defs>
+                    <linearGradient id="footer-instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#405de6" />
+                      <stop offset="100%" stop-color="#e1306c" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    fill="currentColor"
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <!-- GitHub: ícone Font Awesome -->
+            <li>
+              <a
+                class="site-footer__social-link site-footer__social-link--github"
+                href="https://github.com/WeydisonAndrade"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Perfil de Weydison Andrade no GitHub (abre em nova aba)"
+              >
+                <i class="fa-brands fa-github site-footer__social-icon" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Copyright: span preenchido com o ano atual pelo script inline abaixo -->
+        <p class="site-footer__text">© <span id="footer-year"></span> Weydison Andrade. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <!-- Script inline: ano no rodapé + menu mobile (abrir/fechar e colapsar ao seguir um link) -->
+    <script>
+      (function () {
+        var y = document.getElementById("footer-year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        var btn = document.getElementById("menuToggle");
+        var nav = document.getElementById("headerNav");
+        if (!btn || !nav) return;
+
+        btn.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          btn.classList.toggle("is-open", open);
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+          btn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            if (window.matchMedia("(max-width: 767px)").matches) {
+              nav.classList.remove("is-open");
+              btn.classList.remove("is-open");
+              btn.setAttribute("aria-expanded", "false");
+              btn.setAttribute("aria-label", "Abrir menu");
+            }
+          });
+        });
+      })();
+    </script>
+    <!-- Animação de fundo: rede de partículas (defer = após parse do HTML) -->
+    <script src="js/particles.js" defer></script>
+  </body>
+</html>

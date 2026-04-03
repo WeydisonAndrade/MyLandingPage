@@ -1178,7 +1178,6 @@ ul {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Ao pressionar: botão “anterior” desloca-se levemente à esquerda (alinhado ao scroll) */
 .projects__nav--prev:active:not(:disabled) {
   transform: translateY(-50%) translateX(-8px) scale(0.95);
 }

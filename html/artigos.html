@@ -1,31 +1,41 @@
 <!DOCTYPE html>
+<!-- artigos.html — Listagem de artigos e insights; primeira entrada linka para lean.html -->
 <html lang="pt-BR">
   <head>
+    <!-- Codificação e viewport para renderização correta em qualquer dispositivo -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Título da aba e meta description para SEO e previews -->
     <title>Artigos &amp; Insights · Weydison Andrade</title>
     <meta
       name="description"
       content="Artigos sobre engenharia de produção, software, qualidade e gestão — Weydison Andrade."
     />
+    <!-- Pré-conexão e carregamento das fontes Inter e JetBrains Mono (tipografia do site) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
+    <!-- Ícones Font Awesome: LinkedIn e GitHub no rodapé -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Folha de estilos global do portfólio (grid de cards, página artigos, header, footer) -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <!-- page-artigos: layout em coluna com altura mínima da viewport e estilos específicos da listagem -->
   <body class="page-artigos">
+    <!-- Canvas de fundo: rede de partículas (js/particles.js); decorativo, pointer-events: none no CSS -->
     <canvas id="particle-network" class="particle-canvas" aria-hidden="true"></canvas>
 
+    <!-- Cabeçalho compartilhado com as demais páginas: navegação para o index e indicação da página atual em Artigos -->
     <header class="header">
+      <!-- Controle do menu em telas pequenas: alterna classe is-open no nav e atualiza aria-* -->
       <button
         class="header__toggle"
         type="button"
@@ -39,6 +49,7 @@
         <span class="header__bar"></span>
       </button>
 
+      <!-- Links principais; artigos.html usa aria-current="page" para estilo de item ativo (CSS) -->
       <nav class="header__nav" id="headerNav" aria-label="Principal">
         <ul class="header__list">
           <li><a href="index.html#inicio">Início</a></li>
@@ -51,9 +62,12 @@
       </nav>
     </header>
 
+    <!-- Área principal: grade de cards de artigo (id para acessibilidade / skip links) -->
     <main class="articles-main" id="conteudo-principal">
+      <!-- Seção semântica; aria-labelledby associa o h1 ao propósito da região para leitores de tela -->
       <section class="articles" aria-labelledby="articles-page-title">
         <div class="section-container articles__inner">
+          <!-- Hero da página: título H1 único e subtítulo introdutório -->
           <header class="articles__hero">
             <h1 id="articles-page-title" class="articles__title">
               Artigos &amp; Insights: Onde a Engenharia de Produção encontra o Software
@@ -64,22 +78,30 @@
             </p>
           </header>
 
+          <!-- Grid responsivo de cards (1 coluna mobile → 2 tablet → 3 desktop, via CSS) -->
           <div class="articles__grid">
-            <article class="articles-card">
-              <span class="project-card__badge articles-card__category">Lean IT</span>
-              <h2 class="articles-card__title">Do chão de fábrica ao backlog ágil</h2>
-              <p class="articles-card__excerpt">
-                Como práticas de melhoria contínua podem informar priorização de backlog e rituais de time em squads de
-                produto.
-              </p>
-              <div class="articles-card__meta">
-                <time datetime="2025-02-10">10 fev. 2025</time>
-                <span class="articles-card__meta-sep" aria-hidden="true">·</span>
-                <span>6 min de leitura</span>
-              </div>
-              <a class="articles-card__cta" href="#">Ler Artigo Completo</a>
+            <!-- Card clicável inteiro: um único <a> envolve o conteúdo (sem <a> aninhado); destino lean.html -->
+            <article class="articles-card articles-card--linkable">
+              <a
+                class="articles-card__link"
+                href="lean.html"
+                aria-label="Ler artigo completo: Lean Six Sigma Aplicado à Testes de Software"
+              >
+                <span class="project-card__badge articles-card__category">Lean IT</span>
+                <h2 class="articles-card__title">Lean Six Sigma Aplicado à Testes de Software</h2>
+                <p class="articles-card__excerpt">
+                  Como práticas de Lean Six Sigma podem ser aplicadas aos testes de software.
+                </p>
+                <div class="articles-card__meta">
+                  <time datetime="2025-02-10">10 fev. 2025</time>
+                  <span class="articles-card__meta-sep" aria-hidden="true">·</span>
+                  <span>6 min de leitura</span>
+                </div>
+                <span class="articles-card__cta">Ler Artigo Completo</span>
+              </a>
             </article>
 
+            <!-- Card estático: CTA é link separado; href # até existir página do artigo -->
             <article class="articles-card">
               <span class="project-card__badge articles-card__category">QA</span>
               <h2 class="articles-card__title">Testes que protegem o fluxo de valor</h2>
@@ -155,6 +177,7 @@
       </section>
     </main>
 
+    <!-- Rodapé padrão do site: redes sociais e copyright com ano atualizado por script -->
     <footer class="site-footer">
       <div class="site-footer__inner">
         <nav class="site-footer__social" aria-label="Redes sociais">
@@ -170,6 +193,7 @@
                 <i class="fa-brands fa-linkedin-in site-footer__social-icon" aria-hidden="true"></i>
               </a>
             </li>
+            <!-- Instagram: SVG com gradiente; id footer-instagram-gradient usado em style.css (fill: url(...)) -->
             <li>
               <a
                 class="site-footer__social-link site-footer__social-link--instagram"
@@ -216,6 +240,7 @@
       </div>
     </footer>
 
+    <!-- Script inline: preenche ano no rodapé e controla menu mobile (toggle + fechar ao navegar) -->
     <script>
       (function () {
         var y = document.getElementById("footer-year");
@@ -244,6 +269,7 @@
         });
       })();
     </script>
+    <!-- Animação de fundo (defer: executa após o HTML estar parseado) -->
     <script src="js/particles.js" defer></script>
   </body>
 </html>
