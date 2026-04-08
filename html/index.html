@@ -54,15 +54,20 @@
     </header>
 
     <!-- Seção inicial (hero): nome, cargo e foto -->
-    <section class="home" id="inicio">
+    <section class="home section--translatable" id="inicio">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="section-container home__inner">
         <div class="home-text">
           <h1>Weydison Andrade</h1>
-          <h2>Estudante de Engenharia de Software</h2>
-          <h2>Tecnólogo em Gestão de Produção</h2>
-          <h2>Pós-Graduado em Engenharia de Produção e Engenharia de Processos</h2>
-          <h2>Green Belt Lean Six Sigma</h2>
-          <p>Transformando ideias em software.</p>
+          <h2 data-en="Software Engineering Student">Estudante de Engenharia de Software</h2>
+          <h2 data-en="Production Management Technologist">Tecnólogo em Gestão de Produção</h2>
+          <h2 data-en="Postgraduate in Production Engineering and Process Engineering">
+            Pós-Graduado em Engenharia de Produção e Engenharia de Processos
+          </h2>
+          <h2 data-en="Green Belt Lean Six Sigma">Green Belt Lean Six Sigma</h2>
+          <p data-en="Turning ideas into software.">Transformando ideias em software.</p>
         </div>
         <div class="home__photo">
           <div class="home__photo-wrap">
@@ -85,12 +90,17 @@
     </section>
     <hr class="section-divider" />
     <!-- Apresentação: transição Produção → Software + credenciais -->
-    <section class="about" id="sobre">
+    <section class="about section--translatable" id="sobre">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="section-container about__inner">
         <div class="about__main">
-          <h2>Sobre mim</h2>
+          <h2 data-en="About me">Sobre mim</h2>
           <div class="about__copy">
-            <p>
+            <p
+              data-en="I am a <strong>Software Engineer</strong> in training at the International University Center <span class=&quot;tech-inline&quot;>UNINTER</span>. I hold a degree in Industrial Production Management Technology from Leonardo da Vinci University Center <span class=&quot;tech-inline&quot;>UNIASSELVI</span>, postgraduate studies in Production Engineering and Process Engineering also at <span class=&quot;tech-inline&quot;>UNINTER</span>, and I am certified in <strong>Green Belt Lean Six Sigma</strong> by FM2S. I have extensive shop-floor experience and solid knowledge in <strong>Continuous Improvement</strong> and Process Optimization — from prior studies and practice."
+            >
               Sou um <strong>Engenheiro de Software</strong> em formação pelo Centro Universitário
               Internacional <span class="tech-inline">UNINTER</span>. Tenho formação em Tecnologia da
               Gestão de Produção Industrial pelo Centro Universitário Leonardo da Vinci
@@ -101,7 +111,9 @@
               <strong>Melhoria Contínua</strong> e Otimização de Processos — fruto de estudos e
               prática anteriores.
             </p>
-            <p>
+            <p
+              data-en="I am currently pursuing a <strong>career transition into IT</strong>, focusing on Web Development, Data, and QA, applying Production Engineering techniques to technology, development, data analysis, and quality. I am constantly growing and learning, building hard and soft skills to bridge two fields of engineering and deliver the best service and quality to employers and clients."
+            >
               Atualmente busco <strong>transição de carreira para a área de TI</strong>, com foco em
               Desenvolvimento Web, Dados e QA, aplicando técnicas da Engenharia de Produção à
               tecnologia, ao desenvolvimento, à análise de dados e à qualidade. Estou em evolução e
@@ -111,23 +123,25 @@
           </div>
           <ul class="about__credentials" aria-label="Formação e certificações">
             <li class="about__credential">
-              <span class="about__credential-title">Engenharia de Software</span>
+              <span class="about__credential-title" data-en="Software Engineering">Engenharia de Software</span>
               <span class="about__credential-org">UNINTER</span>
             </li>
             <li class="about__credential">
-              <span class="about__credential-title">Gestão de Produção Industrial</span>
+              <span class="about__credential-title" data-en="Industrial Production Management">Gestão de Produção Industrial</span>
               <span class="about__credential-org">UNIASSELVI</span>
             </li>
             <li class="about__credential">
-              <span class="about__credential-title">Pós Produção &amp; Processos</span>
+              <span class="about__credential-title" data-en="Postgraduate Production &amp; Processes">Pós Produção &amp; Processos</span>
               <span class="about__credential-org">UNINTER</span>
             </li>
             <li class="about__credential">
-              <span class="about__credential-title">Green Belt Lean Six Sigma</span>
+              <span class="about__credential-title" data-en="Green Belt Lean Six Sigma">Green Belt Lean Six Sigma</span>
               <span class="about__credential-org">FM2S</span>
             </li>
           </ul>
-          <p class="about__tagline">Unindo a precisão da produção à agilidade do software.</p>
+          <p class="about__tagline" data-en="Bridging production precision with software agility.">
+            Unindo a precisão da produção à agilidade do software.
+          </p>
         </div>
         <aside class="about__aside" aria-hidden="true">
           <svg class="about__deco" viewBox="0 0 200 200" width="200" height="200" focusable="false">
@@ -181,10 +195,16 @@
     </section>
     <hr class="section-divider" />
     <!-- Conhecimentos em dashboard: Tech × Processos (ícones Font Awesome) -->
-    <section class="know-how" id="conhecimentos">
+    <section class="know-how section--translatable" id="conhecimentos">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="section-container know-how__wrap">
-        <h2>Conhecimentos</h2>
-        <p class="know-how__intro">
+        <h2 data-en="Skills">Conhecimentos</h2>
+        <p
+          class="know-how__intro"
+          data-en="A hybrid view: development and data combined with lean processes and industrial management — bringing factory efficiency together with agile software delivery."
+        >
           Visão híbrida: desenvolvimento e dados aliados a processos enxutos e gestão industrial —
           para unir eficiência de fábrica com agilidade de entrega em software.
         </p>
@@ -194,7 +214,7 @@
               <span class="know-how-card__badge-icon" aria-hidden="true">
                 <i class="fa-solid fa-laptop-code"></i>
               </span>
-              <h3 class="know-how-card__title">Tech Stack &amp; Desenvolvimento</h3>
+              <h3 class="know-how-card__title" data-en="Tech Stack &amp; Development">Tech Stack &amp; Desenvolvimento</h3>
             </header>
             <ul class="know-how-card__list">
               <li class="know-how-item">
@@ -231,7 +251,7 @@
               <span class="know-how-card__badge-icon" aria-hidden="true">
                 <i class="fa-solid fa-gears"></i>
               </span>
-              <h3 class="know-how-card__title">Processos &amp; Gestão Industrial</h3>
+              <h3 class="know-how-card__title" data-en="Processes &amp; Industrial Management">Processos &amp; Gestão Industrial</h3>
             </header>
             <ul class="know-how-card__list">
               <li class="know-how-item">
@@ -264,7 +284,7 @@
               </li>
               <li class="know-how-item">
                 <i class="fa-solid fa-arrow-trend-up know-how-item__glyph" aria-hidden="true"></i>
-                <span class="know-how-item__label">Melhoria Contínua</span>
+                <span class="know-how-item__label" data-en="Continuous Improvement">Melhoria Contínua</span>
               </li>
             </ul>
           </article>
@@ -273,31 +293,40 @@
     </section>
     <hr class="section-divider" />
     <!-- Contato: texto de convite + link para WhatsApp (abre em nova aba) -->
-    <section class="contact" id="contato">
+    <section class="contact section--translatable" id="contato">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="section-container contact-text">
-        <h2>Contato</h2>
-        <p>Entre em contato para oportunidades, projetos ou uma boa conversa sobre <span class="tech-inline">código</span>!</p>
+        <h2 data-en="Contact">Contato</h2>
+        <p data-en="Get in touch for opportunities, projects, or a great conversation about <span class=&quot;tech-inline&quot;>code</span>!">
+          Entre em contato para oportunidades, projetos ou uma boa conversa sobre <span class="tech-inline">código</span>!
+        </p>
         <a
           class="contact-whatsapp"
           href="https://wa.me/5592992929044?text=Ol%C3%A1%21%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Conversar no WhatsApp"
+          data-aria-en="Chat on WhatsApp"
         >
           <svg class="contact-whatsapp__icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
             <path
               d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
             />
           </svg>
-          Entrar em contato com o WhatsApp
+          <span data-en="Contact me on WhatsApp">Entrar em contato com o WhatsApp</span>
         </a>
       </div>
     </section>
     <hr class="section-divider section-divider--after-contact" />
     <!-- Portfólio: carrossel horizontal com botões prev/next (lógica em projects-carousel.js) -->
-    <section class="projects" id="projetos" aria-labelledby="projects-heading">
+    <section class="projects section--translatable" id="projetos" aria-labelledby="projects-heading">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="section-container section-container--projects">
-      <h2 id="projects-heading" class="projects__heading">Projetos</h2>
+      <h2 id="projects-heading" class="projects__heading" data-en="Projects">Projetos</h2>
       <div class="projects__wrap">
         <!-- Anterior: scroll para a esquerda + movimento visual no clique (CSS + js/projects-carousel.js) -->
         <button
@@ -306,6 +335,7 @@
           id="projectsPrev"
           aria-controls="projectsCarousel"
           aria-label="Ver projetos anteriores"
+          data-aria-en="See previous projects"
         >
           <span class="projects__nav-icon-wrap" aria-hidden="true">
             <svg class="projects__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -319,6 +349,7 @@
           id="projectsCarousel"
           role="region"
           aria-label="Carrossel de projetos"
+          data-aria-en="Projects carousel"
           tabindex="0"
         >
         <!-- Card: EcoFábrica (fundo e estilo definidos em CSS por classe project-card--visual) -->
@@ -329,12 +360,16 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="EcoFábrica: painel de produção com OEE e KPIs. Abre em nova aba."
+            data-aria-en="EcoFábrica: production dashboard with OEE and KPIs. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">EcoFábrica</h3>
-              <p class="project-card__desc">
+              <p
+                class="project-card__desc"
+                data-en="Production dashboard with <span class=&quot;tech-inline&quot;>OEE</span>, <span class=&quot;tech-inline&quot;>KPIs</span>, and daily logging."
+              >
                 Painel de produção com <span class="tech-inline">OEE</span>, <span class="tech-inline">KPIs</span> e
                 registro diário.
               </p>
@@ -343,7 +378,7 @@
                 <span class="project-card__badge">Flask</span>
                 <span class="project-card__badge">MySQL</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Abrir projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="Open project">Abrir projeto</span>
             </div>
           </a>
         </article>
@@ -355,18 +390,24 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="PsicoHealth: psicologia com foco em acolhimento e equilíbrio. Abre em nova aba."
+            data-aria-en="PsicoHealth: psychology focused on care and balance. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">PsicoHealth</h3>
-              <p class="project-card__desc">Saúde mental e autoconhecimento com abordagem acolhedora e baseada em evidências.</p>
+              <p
+                class="project-card__desc"
+                data-en="Mental health and self-knowledge with a welcoming, evidence-based approach."
+              >
+                Saúde mental e autoconhecimento com abordagem acolhedora e baseada em evidências.
+              </p>
               <div class="project-card__tags" aria-label="Tecnologias utilizadas">
                 <span class="project-card__badge">HTML</span>
                 <span class="project-card__badge">CSS</span>
                 <span class="project-card__badge">JS</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="View project">Ver projeto</span>
             </div>
           </a>
         </article>
@@ -378,18 +419,24 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="DentalPlan: clínica odontológica com foco em atendimento e tecnologia. Abre em nova aba."
+            data-aria-en="DentalPlan: dental clinic focused on care and technology. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">DentalPlan</h3>
-              <p class="project-card__desc">Landing page de clínica odontológica com posicionamento profissional e foco em conversão.</p>
+              <p
+                class="project-card__desc"
+                data-en="Dental clinic landing page with professional positioning and conversion focus."
+              >
+                Landing page de clínica odontológica com posicionamento profissional e foco em conversão.
+              </p>
               <div class="project-card__tags" aria-label="Tecnologias utilizadas">
                 <span class="project-card__badge">HTML</span>
                 <span class="project-card__badge">CSS</span>
                 <span class="project-card__badge">JavaScript</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="View project">Ver projeto</span>
             </div>
           </a>
         </article>
@@ -401,18 +448,24 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Justiça Trabalhista: landing page de escritório de advocacia trabalhista. Abre em nova aba."
+            data-aria-en="Labor Justice: law firm landing page for labor law practice. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">Justiça Trabalhista</h3>
-              <p class="project-card__desc">Landing page institucional para advocacia trabalhista, áreas de atuação e formulário de contato.</p>
+              <p
+                class="project-card__desc"
+                data-en="Institutional landing page for labor law practice, practice areas, and contact form."
+              >
+                Landing page institucional para advocacia trabalhista, áreas de atuação e formulário de contato.
+              </p>
               <div class="project-card__tags" aria-label="Tecnologias utilizadas">
                 <span class="project-card__badge">HTML</span>
                 <span class="project-card__badge">CSS</span>
                 <span class="project-card__badge">JavaScript</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="View project">Ver projeto</span>
             </div>
           </a>
         </article>
@@ -424,18 +477,24 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="DogVet: clínica veterinária com serviços, equipe e agendamento. Abre em nova aba."
+            data-aria-en="DogVet: veterinary clinic with services, team, and scheduling. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">DogVet</h3>
-              <p class="project-card__desc">Landing page de clínica veterinária: serviços, equipe, depoimentos e contato com foco em conversão.</p>
+              <p
+                class="project-card__desc"
+                data-en="Veterinary clinic landing page: services, team, testimonials, and contact with a conversion focus."
+              >
+                Landing page de clínica veterinária: serviços, equipe, depoimentos e contato com foco em conversão.
+              </p>
               <div class="project-card__tags" aria-label="Tecnologias utilizadas">
                 <span class="project-card__badge">HTML</span>
                 <span class="project-card__badge">CSS</span>
                 <span class="project-card__badge">JavaScript</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="View project">Ver projeto</span>
             </div>
           </a>
         </article>
@@ -447,12 +506,16 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="JC Barbearia: landing page premium com planos, equipe e contato. Abre em nova aba."
+            data-aria-en="JC Barbearia: premium barbershop landing page with plans, team, and contact. Opens in a new tab."
           >
             <span class="project-card__bg" aria-hidden="true"></span>
             <span class="project-card__overlay" aria-hidden="true"></span>
             <div class="project-card__inner">
               <h3 class="project-card__title">JC Barbearia</h3>
-              <p class="project-card__desc">
+              <p
+                class="project-card__desc"
+                data-en="Premium barbershop landing page: hero, team, monthly subscriptions, and contact channels."
+              >
                 Landing page de barbearia premium: hero, profissionais, assinaturas mensais e canais de contato.
               </p>
               <div class="project-card__tags" aria-label="Tecnologias utilizadas">
@@ -460,7 +523,7 @@
                 <span class="project-card__badge">CSS</span>
                 <span class="project-card__badge">JavaScript</span>
               </div>
-              <span class="project-card__hint" aria-hidden="true">Ver projeto</span>
+              <span class="project-card__hint" aria-hidden="true" data-en="View project">Ver projeto</span>
             </div>
           </a>
         </article>
@@ -471,6 +534,7 @@
           id="projectsNext"
           aria-controls="projectsCarousel"
           aria-label="Ver próximos projetos"
+          data-aria-en="See next projects"
         >
           <span class="projects__nav-icon-wrap" aria-hidden="true">
             <svg class="projects__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -483,7 +547,10 @@
     </section>
 
     <!-- Rodapé: redes sociais + copyright (ano via script inline) -->
-    <footer class="site-footer">
+    <footer class="site-footer site-footer--translatable section--translatable">
+      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+        Read in English
+      </button>
       <div class="site-footer__inner">
         <nav class="site-footer__social" aria-label="Redes sociais">
           <ul class="site-footer__social-list">
@@ -540,7 +607,10 @@
             </li>
           </ul>
         </nav>
-        <p class="site-footer__text">© <span id="footer-year"></span> Weydison Andrade. Todos os direitos reservados.</p>
+        <p class="site-footer__text">
+          © <span id="footer-year"></span>
+          <span data-en="Weydison Andrade. All rights reserved.">Weydison Andrade. Todos os direitos reservados.</span>
+        </p>
       </div>
     </footer>
 
@@ -575,6 +645,7 @@
     </script>
     <!-- Scripts externos (defer = executam após o HTML estar parseado) -->
     <script src="js/projects-carousel.js" defer></script>
+    <script src="js/section-translate.js" defer></script>
     <script src="js/particles.js" defer></script>
   </body>
 </html>

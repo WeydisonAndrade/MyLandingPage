@@ -26,6 +26,60 @@
   --tech-badge-hover-border: rgba(130, 185, 255, 0.38);
 }
 
+/* ========== Tradução in-place (Read in English / Ler em Português) ========== */
+.section--translatable,
+.site-footer.site-footer--translatable {
+  position: relative;
+  padding-top: 3.35rem;
+}
+
+.btn-translate {
+  position: absolute;
+  top: calc(var(--section-py-mobile) * 0.12 + env(safe-area-inset-top, 0px) * 0.25);
+  right: max(0.65rem, var(--container-gutter));
+  z-index: 5;
+  padding: 0.42rem 0.85rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(0.6875rem, 2.6vw, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: rgba(210, 225, 248, 0.96);
+  background: rgba(130, 185, 255, 0.1);
+  border: 1px solid rgba(130, 185, 255, 0.32);
+  border-radius: 9999px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-translate:hover {
+  background: rgba(130, 185, 255, 0.2);
+  border-color: rgba(130, 185, 255, 0.48);
+  color: #fff;
+}
+
+.btn-translate:focus-visible {
+  outline: 2px solid rgba(130, 185, 255, 0.9);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .btn-translate {
+    top: calc(var(--section-py-desktop) * 0.1);
+  }
+}
+
+.site-footer.site-footer--translatable .btn-translate {
+  top: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-translate {
+    transition: none;
+  }
+}
+
 section {
   padding-block: var(--section-py-mobile);
   padding-left: max(var(--container-gutter), env(safe-area-inset-left, 0px));
