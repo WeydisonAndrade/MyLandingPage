@@ -55,12 +55,15 @@
 
     <!-- Seção inicial (hero): nome, cargo e foto -->
     <section class="home section--translatable" id="inicio">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="section-container home__inner">
-        <div class="home-text">
+        <div class="section__head section__head--home">
           <h1>Weydison Andrade</h1>
+          <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+            Read in English
+          </button>
+        </div>
+        <div class="home__columns">
+        <div class="home-text">
           <h2 data-en="Software Engineering Student">Estudante de Engenharia de Software</h2>
           <h2 data-en="Production Management Technologist">Tecnólogo em Gestão de Produção</h2>
           <h2 data-en="Postgraduate in Production Engineering and Process Engineering">
@@ -86,17 +89,20 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
     </section>
     <hr class="section-divider" />
     <!-- Apresentação: transição Produção → Software + credenciais -->
     <section class="about section--translatable" id="sobre">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="section-container about__inner">
-        <div class="about__main">
+        <div class="section__head">
           <h2 data-en="About me">Sobre mim</h2>
+          <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+            Read in English
+          </button>
+        </div>
+        <div class="about__main">
           <div class="about__copy">
             <p
               data-en="I am a <strong>Software Engineer</strong> in training at the International University Center <span class=&quot;tech-inline&quot;>UNINTER</span>. I hold a degree in Industrial Production Management Technology from Leonardo da Vinci University Center <span class=&quot;tech-inline&quot;>UNIASSELVI</span>, postgraduate studies in Production Engineering and Process Engineering also at <span class=&quot;tech-inline&quot;>UNINTER</span>, and I am certified in <strong>Green Belt Lean Six Sigma</strong> by FM2S. I have extensive shop-floor experience and solid knowledge in <strong>Continuous Improvement</strong> and Process Optimization — from prior studies and practice."
@@ -196,11 +202,13 @@
     <hr class="section-divider" />
     <!-- Conhecimentos em dashboard: Tech × Processos (ícones Font Awesome) -->
     <section class="know-how section--translatable" id="conhecimentos">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="section-container know-how__wrap">
-        <h2 data-en="Skills">Conhecimentos</h2>
+        <div class="section__head">
+          <h2 data-en="Skills">Conhecimentos</h2>
+          <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+            Read in English
+          </button>
+        </div>
         <p
           class="know-how__intro"
           data-en="A hybrid view: development and data combined with lean processes and industrial management — bringing factory efficiency together with agile software delivery."
@@ -294,11 +302,13 @@
     <hr class="section-divider" />
     <!-- Contato: texto de convite + link para WhatsApp (abre em nova aba) -->
     <section class="contact section--translatable" id="contato">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="section-container contact-text">
-        <h2 data-en="Contact">Contato</h2>
+        <div class="section__head">
+          <h2 data-en="Contact">Contato</h2>
+          <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+            Read in English
+          </button>
+        </div>
         <p data-en="Get in touch for opportunities, projects, or a great conversation about <span class=&quot;tech-inline&quot;>code</span>!">
           Entre em contato para oportunidades, projetos ou uma boa conversa sobre <span class="tech-inline">código</span>!
         </p>
@@ -322,11 +332,13 @@
     <hr class="section-divider section-divider--after-contact" />
     <!-- Portfólio: carrossel horizontal com botões prev/next (lógica em projects-carousel.js) -->
     <section class="projects section--translatable" id="projetos" aria-labelledby="projects-heading">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="section-container section-container--projects">
-      <h2 id="projects-heading" class="projects__heading" data-en="Projects">Projetos</h2>
+      <div class="section__head section__head--projects">
+        <h2 id="projects-heading" class="projects__heading" data-en="Projects">Projetos</h2>
+        <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+          Read in English
+        </button>
+      </div>
       <div class="projects__wrap">
         <!-- Anterior: scroll para a esquerda + movimento visual no clique (CSS + js/projects-carousel.js) -->
         <button
@@ -548,10 +560,12 @@
 
     <!-- Rodapé: redes sociais + copyright (ano via script inline) -->
     <footer class="site-footer site-footer--translatable section--translatable">
-      <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
-        Read in English
-      </button>
       <div class="site-footer__inner">
+        <div class="section__head section__head--footer">
+          <button type="button" class="btn-translate" aria-pressed="false" aria-label="Read this section in English">
+            Read in English
+          </button>
+        </div>
         <nav class="site-footer__social" aria-label="Redes sociais">
           <ul class="site-footer__social-list">
             <li>
