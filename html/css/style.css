@@ -438,6 +438,18 @@ ul {
   color: #fff;
 }
 
+/* Destaque (hero): verde vivo + brilho suave (sem fundo escuro) */
+.home__text-glow {
+  color: #00ff00;
+  text-shadow:
+    0 0 4px rgba(0, 255, 0, 0.85),
+    0 0 10px rgba(0, 255, 0, 0.45),
+    0 0 18px rgba(0, 255, 0, 0.2);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
 /* Hero — foto circular com trilhas de circuito + anel animado (ciano / verde limão) */
 @keyframes circuitTraceFlow {
   0%,
