@@ -1,9 +1,11 @@
 /**
- * Tradução in-place por seção: alterna PT ↔ EN via data-en / data-pt, sem recarregar.
+ * Tradução global PT ↔ EN via data-en / data-pt, sincronizada em todas as seções
+ * e persistida em localStorage (preferred_language: 'en' | 'pt').
  */
 (function () {
   "use strict";
 
+  var STORAGE_KEY = "preferred_language";
   var HTML_LIKE = /<[a-z][\s\S]*>/i;
 
   function setNodeContent(el, value) {
@@ -20,12 +22,13 @@
     el.setAttribute("data-pt", el.innerHTML.trim() === "" ? el.textContent : el.innerHTML);
   }
 
-  document.querySelectorAll(".section--translatable .btn-translate").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var section = btn.closest(".section--translatable");
-      if (!section) return;
+  function applyLanguage(lang) {
+    var toEn = lang === "en";
 
-      var toEn = !section.classList.contains("is-lang-en");
+    document.documentElement.setAttribute("lang", toEn ? "en" : "pt-BR");
+
+    document.querySelectorAll(".section--translatable").forEach(function (section) {
+      section.classList.toggle("is-lang-en", toEn);
 
       section.querySelectorAll("[data-aria-en]").forEach(function (el) {
         if (toEn) {
@@ -51,10 +54,54 @@
           if (pt != null) setNodeContent(el, pt);
         }
       });
+    });
+  }
 
-      section.classList.toggle("is-lang-en", toEn);
+  function syncTranslateButtons(lang) {
+    var toEn = lang === "en";
+    document.querySelectorAll(".section--translatable .btn-translate").forEach(function (btn) {
       btn.textContent = toEn ? "Ler em Português" : "Read in English";
       btn.setAttribute("aria-pressed", toEn ? "true" : "false");
     });
-  });
+  }
+
+  function getStoredLanguage() {
+    var v = localStorage.getItem(STORAGE_KEY);
+    return v === "en" || v === "pt" ? v : "pt";
+  }
+
+  /** Idioma atualmente aplicado na página (alinha com o primeiro bloco traduzível). */
+  function getCurrentLanguageFromDom() {
+    var first = document.querySelector(".section--translatable");
+    return first && first.classList.contains("is-lang-en") ? "en" : "pt";
+  }
+
+  function initFromStorage() {
+    var lang = getStoredLanguage();
+    applyLanguage(lang);
+    syncTranslateButtons(lang);
+  }
+
+  function attachClickHandlers() {
+    document.querySelectorAll(".section--translatable .btn-translate").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var current = getCurrentLanguageFromDom();
+        var next = current === "en" ? "pt" : "en";
+        localStorage.setItem(STORAGE_KEY, next);
+        applyLanguage(next);
+        syncTranslateButtons(next);
+      });
+    });
+  }
+
+  function boot() {
+    initFromStorage();
+    attachClickHandlers();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();
