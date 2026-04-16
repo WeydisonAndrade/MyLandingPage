@@ -213,7 +213,17 @@
       </div>
     </section>
     <hr class="section-divider" />
-    <!-- Conhecimentos em dashboard: Tech × Processos (ícones Font Awesome) -->
+    <!--
+      Seção "Conhecimentos" — documentação das alterações nesta landing:
+      • Tech: Python com gradiente oficial (classe know-how-item__glyph--python) e nível no rótulo + data-en;
+        SQL/MySQL com ícone de banco (FA) + SVG da marca MySQL (Font Awesome Free não expõe fa-mysql),
+        rótulo com nível básico + data-en; HTML/CSS, Git, GitHub e Cursor com níveis e data-en onde aplicável;
+        Git com cor de marca (--git); Cursor com SVG do logo (Simple Icons), em vez do ícone terminal genérico.
+      • Processos: card com know-how-card__groups separando Metodologias e Ferramentas (subtítulos com data-en);
+        ícones coloridos por linha (--proc-*); metodologias Lean, Six Sigma, Kanban, Scrum, MASP e Melhoria Contínua
+        usam botão + painel oculto (definição ao clique), ids únicos, aria-expanded/aria-controls e texto traduzível
+        (data-en; Melhoria Contínua usa know-how-item__def-body com HTML em data-en para três parágrafos em EN).
+    -->
     <section class="know-how section--translatable" id="conhecimentos">
       <div class="section-container know-how__wrap">
         <div class="section__head">
@@ -237,6 +247,7 @@
               </span>
               <h3 class="know-how-card__title" data-en="Tech Stack &amp; Development">Tech Stack &amp; Desenvolvimento</h3>
             </header>
+            <!-- Itens Tech: ver comentário de abertura da seção Conhecimentos (ícones, SVGs, níveis, data-en). -->
             <ul class="know-how-card__list">
               <li class="know-how-item">
                 <i
@@ -338,10 +349,12 @@
               </span>
               <h3 class="know-how-card__title" data-en="Processes &amp; Industrial Management">Processos &amp; Gestão Industrial</h3>
             </header>
+            <!-- Grupos Metodologias / Ferramentas + itens de metodologia com definição expansível (JS dedicado). -->
             <div class="know-how-card__groups">
               <div class="know-how-card__group">
                 <h4 class="know-how-card__subheading" data-en="Methodologies">Metodologias</h4>
                 <ul class="know-how-card__list">
+                  <!-- Cada <li> abaixo: botão disclosure + painel com definição (texto + data-en); ver know-how-disclosure.js. -->
                   <li class="know-how-item know-how-item--def-disclosure">
                     <button
                       type="button"
@@ -893,6 +906,7 @@
     <!-- Scripts externos (defer = executam após o HTML estar parseado) -->
     <script src="js/projects-carousel.js" defer></script>
     <script src="js/section-translate.js" defer></script>
+    <!-- Liga/desliga painéis de definição das metodologias (botões .know-how-item__disclosure-trigger). -->
     <script src="js/know-how-disclosure.js" defer></script>
     <script src="js/particles.js" defer></script>
   </body>
