@@ -342,7 +342,7 @@
               <div class="know-how-card__group">
                 <h4 class="know-how-card__subheading" data-en="Methodologies">Metodologias</h4>
                 <ul class="know-how-card__list">
-                  <li class="know-how-item know-how-item--lean-disclosure">
+                  <li class="know-how-item know-how-item--def-disclosure">
                     <button
                       type="button"
                       class="know-how-item__disclosure-trigger"
@@ -369,37 +369,145 @@
                       </p>
                     </div>
                   </li>
-                  <li class="know-how-item">
-                    <i
-                      class="fa-solid fa-bullseye know-how-item__glyph know-how-item__glyph--proc-sixsigma"
-                      aria-hidden="true"
-                    ></i>
-                    <span class="know-how-item__label">Six Sigma</span>
+                  <li class="know-how-item know-how-item--def-disclosure">
+                    <button
+                      type="button"
+                      class="know-how-item__disclosure-trigger"
+                      id="trigger-six-sigma"
+                      aria-expanded="false"
+                      aria-controls="def-six-sigma"
+                      aria-label="Mostrar ou ocultar a definição de Six Sigma"
+                    >
+                      <i
+                        class="fa-solid fa-bullseye know-how-item__glyph know-how-item__glyph--proc-sixsigma"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="know-how-item__label">Six Sigma</span>
+                      <span class="know-how-item__disclosure-chevron" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </span>
+                    </button>
+                    <div id="def-six-sigma" class="know-how-item__def-panel" hidden>
+                      <p
+                        class="know-how-item__def"
+                        data-en="Six Sigma is a methodology that seeks to reduce defects and variability in processes, using data and statistical analysis to achieve high quality and consistency."
+                      >
+                        Six Sigma é uma metodologia que busca reduzir defeitos e variabilidade nos processos, usando dados e análise estatística para alcançar alta qualidade e consistência.
+                      </p>
+                    </div>
                   </li>
-                  <li class="know-how-item">
-                    <i
-                      class="fa-solid fa-table-columns know-how-item__glyph know-how-item__glyph--proc-kanban"
-                      aria-hidden="true"
-                    ></i>
-                    <span class="know-how-item__label">Kanban</span>
+                  <li class="know-how-item know-how-item--def-disclosure">
+                    <button
+                      type="button"
+                      class="know-how-item__disclosure-trigger"
+                      id="trigger-kanban"
+                      aria-expanded="false"
+                      aria-controls="def-kanban"
+                      aria-label="Mostrar ou ocultar a definição de Kanban"
+                    >
+                      <i
+                        class="fa-solid fa-table-columns know-how-item__glyph know-how-item__glyph--proc-kanban"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="know-how-item__label">Kanban</span>
+                      <span class="know-how-item__disclosure-chevron" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </span>
+                    </button>
+                    <div id="def-kanban" class="know-how-item__def-panel" hidden>
+                      <p
+                        class="know-how-item__def"
+                        data-en="Kanban is a visual management methodology that organizes work as a continuous flow, using boards and work-in-progress limits to improve productivity and avoid overload."
+                      >
+                        Kanban é uma metodologia visual de gestão que organiza o trabalho em fluxo contínuo, usando quadros e limites de tarefas para melhorar produtividade e evitar sobrecarga.
+                      </p>
+                    </div>
                   </li>
-                  <li class="know-how-item">
-                    <i class="fa-solid fa-users know-how-item__glyph know-how-item__glyph--proc-scrum" aria-hidden="true"></i>
-                    <span class="know-how-item__label">Scrum</span>
+                  <li class="know-how-item know-how-item--def-disclosure">
+                    <button
+                      type="button"
+                      class="know-how-item__disclosure-trigger"
+                      id="trigger-scrum"
+                      aria-expanded="false"
+                      aria-controls="def-scrum"
+                      aria-label="Mostrar ou ocultar a definição de Scrum"
+                    >
+                      <i class="fa-solid fa-users know-how-item__glyph know-how-item__glyph--proc-scrum" aria-hidden="true"></i>
+                      <span class="know-how-item__label">Scrum</span>
+                      <span class="know-how-item__disclosure-chevron" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </span>
+                    </button>
+                    <div id="def-scrum" class="know-how-item__def-panel" hidden>
+                      <p
+                        class="know-how-item__def"
+                        data-en="Scrum is an agile methodology that organizes work in short cycles (sprints), with frequent deliveries and ongoing collaboration to adapt quickly to change."
+                      >
+                        Scrum é uma metodologia ágil que organiza o trabalho em ciclos curtos (sprints), com entregas frequentes e colaboração contínua para adaptação rápida às mudanças.
+                      </p>
+                    </div>
                   </li>
-                  <li class="know-how-item">
-                    <i
-                      class="fa-solid fa-magnifying-glass-chart know-how-item__glyph know-how-item__glyph--proc-masp"
-                      aria-hidden="true"
-                    ></i>
-                    <span class="know-how-item__label">MASP</span>
+                  <li class="know-how-item know-how-item--def-disclosure">
+                    <button
+                      type="button"
+                      class="know-how-item__disclosure-trigger"
+                      id="trigger-masp"
+                      aria-expanded="false"
+                      aria-controls="def-masp"
+                      aria-label="Mostrar ou ocultar a definição de MASP"
+                    >
+                      <i
+                        class="fa-solid fa-magnifying-glass-chart know-how-item__glyph know-how-item__glyph--proc-masp"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="know-how-item__label">MASP</span>
+                      <span class="know-how-item__disclosure-chevron" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </span>
+                    </button>
+                    <div id="def-masp" class="know-how-item__def-panel" hidden>
+                      <p
+                        class="know-how-item__def"
+                        data-en="MASP (Method of Analysis and Problem Solving) is a structured methodology that uses data and sequential steps to identify root causes and solve problems effectively."
+                      >
+                        MASP (Método de Análise e Solução de Problemas) é uma metodologia estruturada que usa dados e etapas sequenciais para identificar causas raiz e resolver problemas de forma eficaz.
+                      </p>
+                    </div>
                   </li>
-                  <li class="know-how-item">
-                    <i
-                      class="fa-solid fa-arrow-trend-up know-how-item__glyph know-how-item__glyph--proc-ci"
-                      aria-hidden="true"
-                    ></i>
-                    <span class="know-how-item__label" data-en="Continuous Improvement">Melhoria Contínua</span>
+                  <li class="know-how-item know-how-item--def-disclosure">
+                    <button
+                      type="button"
+                      class="know-how-item__disclosure-trigger"
+                      id="trigger-melhoria-continua"
+                      aria-expanded="false"
+                      aria-controls="def-melhoria-continua"
+                      aria-label="Mostrar ou ocultar a definição de Melhoria Contínua"
+                    >
+                      <i
+                        class="fa-solid fa-arrow-trend-up know-how-item__glyph know-how-item__glyph--proc-ci"
+                        aria-hidden="true"
+                      ></i>
+                      <span class="know-how-item__label" data-en="Continuous Improvement">Melhoria Contínua</span>
+                      <span class="know-how-item__disclosure-chevron" aria-hidden="true">
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </span>
+                    </button>
+                    <div id="def-melhoria-continua" class="know-how-item__def-panel" hidden>
+                      <div
+                        class="know-how-item__def-body"
+                        data-en='<p class="know-how-item__def">Continuous improvement is the practice of constantly and incrementally refining processes to seek greater efficiency and quality and less waste.</p><p class="know-how-item__def">In technology: it is applied through frequent adjustments to software, quick fixes, testing, user feedback, and continuous evolution of the system (e.g. frequent updates and deployments).</p><p class="know-how-item__def">In manufacturing: it is applied to optimizing production processes, reducing waste, standardization, and improving quality over time.</p>'
+                      >
+                        <p class="know-how-item__def">
+                          Melhoria contínua é a prática de aperfeiçoar processos de forma constante e incremental, buscando mais eficiência, qualidade e menos desperdício.
+                        </p>
+                        <p class="know-how-item__def">
+                          Na tecnologia: aplicada com ajustes frequentes no software, correções rápidas, testes, feedback de usuários e evolução contínua do sistema (ex: atualizações e deploys constantes).
+                        </p>
+                        <p class="know-how-item__def">
+                          Na manufatura: aplicada na otimização de processos produtivos, redução de desperdícios, padronização e aumento da qualidade ao longo do tempo.
+                        </p>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
