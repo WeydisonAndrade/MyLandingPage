@@ -2,8 +2,9 @@
 <!-- lean-manufacturing-six-sigma-tecnologia.html — Página de artigo: Lean Manufacturing e Six Sigma na Tecnologia -->
 <html lang="pt-BR">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Analytics: carrega o script do Google Analytics (gtag) de forma assíncrona -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S1C9F0WB7D"></script>
+    <!-- Inicialização do Google Analytics com o ID da propriedade -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -11,18 +12,24 @@
 
       gtag('config', 'G-S1C9F0WB7D');
     </script>
+    <!-- Metadados base: codificação de caracteres e responsividade mobile -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO principal: título exibido na aba, buscadores e prévias -->
     <title>Lean Manufacturing e Six Sigma: Integração Estratégica e Aplicação na Tecnologia · Weydison Andrade</title>
+    <!-- Resumo do artigo para motores de busca -->
     <meta
       name="description"
       content="Entenda como Lean Manufacturing e Six Sigma se integram na tecnologia para reduzir desperdícios, elevar qualidade de software e melhorar decisões orientadas por dados."
     />
+    <!-- Palavras-chave relacionadas ao tema do conteúdo -->
     <meta
       name="keywords"
       content="Lean Manufacturing, Six Sigma, Lean Six Sigma, tecnologia, qualidade de software, DMAIC, DevOps, melhoria contínua"
     />
+    <!-- Identificação do autor da publicação -->
     <meta name="author" content="Weydison Andrade" />
+    <!-- Open Graph: define como o artigo aparece ao compartilhar em redes sociais -->
     <meta property="og:type" content="article" />
     <meta
       property="og:title"
@@ -33,6 +40,7 @@
       content="Uma análise prática sobre eficiência operacional, qualidade e aplicação de Lean Six Sigma no desenvolvimento de software."
     />
     <meta property="og:image" content="assets/lean-manufacturing-six-sigma-tecnologia.png" />
+    <!-- Twitter Cards: metadados específicos para preview no X/Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
@@ -43,25 +51,34 @@
       content="Como unir Lean e Six Sigma na tecnologia para reduzir retrabalho, melhorar software e escalar processos."
     />
     <meta name="twitter:image" content="assets/lean-manufacturing-six-sigma-tecnologia.png" />
+    <!-- Favicon: ícone exibido na aba do navegador -->
     <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+    <!-- Otimização de carregamento: pré-conexão com Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Tipografia usada no layout (Inter + JetBrains Mono) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
+    <!-- Biblioteca de ícones para elementos visuais (rodapé e UI) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- CSS global do portfólio (layout, tema, componentes e responsividade) -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <!-- page-artigos + page-article: ativa estilos da página de listagem/artigo individual -->
   <body class="page-artigos page-article">
+    <!-- Fundo animado em canvas; renderização controlada via js/particles.js -->
     <canvas id="particle-network" class="particle-canvas" aria-hidden="true"></canvas>
 
+    <!-- Cabeçalho principal com navegação e menu mobile -->
     <header class="header">
+      <!-- Botão hambúrguer: abre/fecha o menu em telas menores -->
       <button
         class="header__toggle"
         type="button"
@@ -75,6 +92,7 @@
         <span class="header__bar"></span>
       </button>
 
+      <!-- Navegação global entre seções do portfólio e página de artigos -->
       <nav class="header__nav" id="headerNav" aria-label="Principal">
         <ul class="header__list">
           <li><a href="index.html#inicio">Início</a></li>
@@ -87,13 +105,18 @@
       </nav>
     </header>
 
+    <!-- Conteúdo principal da página (landmark para acessibilidade) -->
     <main class="articles-main" id="conteudo-principal">
+      <!-- Artigo semântico com idioma explícito -->
       <article class="article-view__article" lang="pt-BR">
+        <!-- Container central com largura de leitura confortável -->
         <div class="section-container article-view__inner">
+          <!-- Link de navegação contextual para voltar à listagem -->
           <p class="article-view__back">
             <a class="article-view__back-link" href="artigos.html">← Voltar aos artigos</a>
           </p>
 
+          <!-- Cabeçalho editorial: categoria, título e metadados -->
           <header class="article-view__header">
             <p class="article-view__kicker">
               <span class="project-card__badge articles-card__category">QA</span>
@@ -106,7 +129,9 @@
             </p>
           </header>
 
+          <!-- Corpo do artigo: conteúdo textual estruturado em seções -->
           <div class="article-view__body">
+            <!-- Lead: abertura com resumo de alto nível do tema -->
             <p class="article-view__lead">
               As metodologias Lean Manufacturing e Six Sigma são amplamente reconhecidas como pilares da excelência
               operacional. Embora tenham surgido no contexto industrial, evoluíram para se tornarem frameworks aplicáveis
@@ -224,10 +249,13 @@
       </article>
     </main>
 
+    <!-- Rodapé global com redes sociais e copyright -->
     <footer class="site-footer">
       <div class="site-footer__inner">
+        <!-- Links externos para perfis sociais -->
         <nav class="site-footer__social" aria-label="Redes sociais">
           <ul class="site-footer__social-list">
+            <!-- Link para LinkedIn -->
             <li>
               <a
                 class="site-footer__social-link site-footer__social-link--linkedin"
@@ -239,6 +267,7 @@
                 <i class="fa-brands fa-linkedin-in site-footer__social-icon" aria-hidden="true"></i>
               </a>
             </li>
+            <!-- Link para Instagram com ícone SVG e gradiente próprio -->
             <li>
               <a
                 class="site-footer__social-link site-footer__social-link--instagram"
@@ -268,6 +297,7 @@
                 </svg>
               </a>
             </li>
+            <!-- Link para GitHub -->
             <li>
               <a
                 class="site-footer__social-link site-footer__social-link--github"
@@ -281,10 +311,15 @@
             </li>
           </ul>
         </nav>
+        <!-- Ano dinâmico preenchido via JavaScript -->
         <p class="site-footer__text">© <span id="footer-year"></span> Weydison Andrade. Todos os direitos reservados.</p>
       </div>
     </footer>
 
+    <!-- Script de comportamento da página:
+         - Atualiza ano do rodapé
+         - Controla abrir/fechar menu mobile
+         - Fecha menu ao clicar em links no mobile -->
     <script>
       (function () {
         var y = document.getElementById("footer-year");
@@ -313,6 +348,7 @@
         });
       })();
     </script>
+    <!-- Scripts de apoio: animação de partículas e rastreamento de eventos -->
     <script src="js/particles.js" defer></script>
     <script src="js/track-events.js" defer></script>
   </body>
