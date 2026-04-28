@@ -1045,6 +1045,23 @@ ul {
   color: #f05032;
 }
 
+/* Card Tech: Java com logo SVG (cores fixas azul/vermelho e melhor consistência). */
+.know-how-item__glyph--java-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  width: 1.7rem;
+}
+
+.know-how-item__glyph--java-logo .know-how-item__java-logo-img {
+  width: 1.55rem;
+  height: 1.55rem;
+  display: inline-block;
+  filter: drop-shadow(0 0 0.45px rgba(255, 255, 255, 0.3))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+}
+
 /* SQL/MySQL: ícone de banco (FA) + SVG da marca; sombras ajudam contraste no card Tech. */
 .know-how-item__glyph--sql-mysql .fa-database {
   color: #42a5f5;
